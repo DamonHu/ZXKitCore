@@ -3,19 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A741EC270B2BBCA052F5F849 /* Pods_ZXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAAFEC71135F7E0E97E973E /* Pods_ZXKit.framework */; };
 		E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94BC26327E78001FC322 /* AppDelegate.swift */; };
 		E4AC94BF26327E78001FC322 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94BE26327E78001FC322 /* SceneDelegate.swift */; };
 		E4AC94C126327E78001FC322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94C026327E78001FC322 /* ViewController.swift */; };
 		E4AC94C426327E78001FC322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4AC94C226327E78001FC322 /* Main.storyboard */; };
 		E4AC94C626327E7B001FC322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AC94C526327E7B001FC322 /* Assets.xcassets */; };
 		E4AC94C926327E7B001FC322 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4AC94C726327E7B001FC322 /* LaunchScreen.storyboard */; };
+		E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94D42632AC8B001FC322 /* ZXKit.swift */; };
+		E4AC94D92632AD4D001FC322 /* ZXKitPluginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94D82632AD4D001FC322 /* ZXKitPluginProtocol.swift */; };
+		E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */; };
+		E4AC94E02632B881001FC322 /* ZXKitPluginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94DF2632B881001FC322 /* ZXKitPluginCollectionViewCell.swift */; };
+		E4AC94E62632BE72001FC322 /* PluginDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94E52632BE72001FC322 /* PluginDemo.swift */; };
+		E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */; };
+		E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */; };
+		E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B4E7B6F90AA2523B6ABBAFD /* Pods-ZXKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.release.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.release.xcconfig"; sourceTree = "<group>"; };
+		4EAAFEC71135F7E0E97E973E /* Pods_ZXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC94B926327E78001FC322 /* ZXKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZXKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC94BC26327E78001FC322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4AC94BE26327E78001FC322 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,15 @@
 		E4AC94C526327E7B001FC322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4AC94C826327E7B001FC322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4AC94CA26327E7B001FC322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4AC94D42632AC8B001FC322 /* ZXKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKit.swift; sourceTree = "<group>"; };
+		E4AC94D82632AD4D001FC322 /* ZXKitPluginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitPluginProtocol.swift; sourceTree = "<group>"; };
+		E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitWindow.swift; sourceTree = "<group>"; };
+		E4AC94DF2632B881001FC322 /* ZXKitPluginCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitPluginCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4AC94E52632BE72001FC322 /* PluginDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo.swift; sourceTree = "<group>"; };
+		E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitCollectionViewHeaderView.swift; sourceTree = "<group>"; };
+		E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo2.swift; sourceTree = "<group>"; };
+		E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo3.swift; sourceTree = "<group>"; };
+		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A741EC270B2BBCA052F5F849 /* Pods_ZXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FCD50FF41D4910E2C455600 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EAAFEC71135F7E0E97E973E /* Pods_ZXKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E4AC94B026327E78001FC322 = {
 			isa = PBXGroup;
 			children = (
 				E4AC94BB26327E78001FC322 /* ZXKit */,
 				E4AC94BA26327E78001FC322 /* Products */,
+				F4427EA4A38B0875A04936AC /* Pods */,
+				1FCD50FF41D4910E2C455600 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +87,7 @@
 		E4AC94BB26327E78001FC322 /* ZXKit */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC94D32632AC61001FC322 /* pod */,
 				E4AC94BC26327E78001FC322 /* AppDelegate.swift */,
 				E4AC94BE26327E78001FC322 /* SceneDelegate.swift */,
 				E4AC94C026327E78001FC322 /* ViewController.swift */,
@@ -63,8 +95,33 @@
 				E4AC94C526327E7B001FC322 /* Assets.xcassets */,
 				E4AC94C726327E7B001FC322 /* LaunchScreen.storyboard */,
 				E4AC94CA26327E7B001FC322 /* Info.plist */,
+				E4AC94E52632BE72001FC322 /* PluginDemo.swift */,
+				E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */,
+				E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */,
 			);
 			path = ZXKit;
+			sourceTree = "<group>";
+		};
+		E4AC94D32632AC61001FC322 /* pod */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC94D42632AC8B001FC322 /* ZXKit.swift */,
+				E4AC94D82632AD4D001FC322 /* ZXKitPluginProtocol.swift */,
+				E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */,
+				E4AC94DF2632B881001FC322 /* ZXKitPluginCollectionViewCell.swift */,
+				E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */,
+			);
+			name = pod;
+			path = ../../pod;
+			sourceTree = "<group>";
+		};
+		F4427EA4A38B0875A04936AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */,
+				3B4E7B6F90AA2523B6ABBAFD /* Pods-ZXKit.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4AC94CD26327E7B001FC322 /* Build configuration list for PBXNativeTarget "ZXKit" */;
 			buildPhases = (
+				BB25811D2BEF2A585AADBE9F /* [CP] Check Pods Manifest.lock */,
 				E4AC94B526327E78001FC322 /* Sources */,
 				E4AC94B626327E78001FC322 /* Frameworks */,
 				E4AC94B726327E78001FC322 /* Resources */,
+				0D11F74AFDE214A7C8ABA84E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +191,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D11F74AFDE214A7C8ABA84E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZXKit/Pods-ZXKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZXKit/Pods-ZXKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZXKit/Pods-ZXKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB25811D2BEF2A585AADBE9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZXKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E4AC94B526327E78001FC322 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AC94E02632B881001FC322 /* ZXKitPluginCollectionViewCell.swift in Sources */,
+				E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */,
+				E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */,
 				E4AC94C126327E78001FC322 /* ViewController.swift in Sources */,
+				E4AC94D92632AD4D001FC322 /* ZXKitPluginProtocol.swift in Sources */,
+				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,
+				E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */,
 				E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */,
 				E4AC94BF26327E78001FC322 /* SceneDelegate.swift in Sources */,
+				E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */,
+				E4AC94E62632BE72001FC322 /* PluginDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +392,7 @@
 		};
 		E4AC94CE26327E7B001FC322 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +412,7 @@
 		};
 		E4AC94CF26327E7B001FC322 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4E7B6F90AA2523B6ABBAFD /* Pods-ZXKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -11,9 +11,28 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ZXKit.show()
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        //第二种
+        ZXKit.regist(plugin: PluginDemo2())
+        ZXKit.regist(plugin: PluginDemo2())
+        ZXKit.regist(plugin: PluginDemo2())
+        ZXKit.regist(plugin: PluginDemo2())
+        ZXKit.regist(plugin: PluginDemo2())
+        ZXKit.regist(plugin: PluginDemo2())
+
+        ZXKit.regist(plugin: PluginDemo3())
+    }
 
 }
 
