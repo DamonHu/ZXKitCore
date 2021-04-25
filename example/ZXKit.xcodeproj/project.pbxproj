@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A741EC270B2BBCA052F5F849 /* Pods_ZXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAAFEC71135F7E0E97E973E /* Pods_ZXKit.framework */; };
 		E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94BC26327E78001FC322 /* AppDelegate.swift */; };
-		E4AC94BF26327E78001FC322 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94BE26327E78001FC322 /* SceneDelegate.swift */; };
 		E4AC94C126327E78001FC322 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94C026327E78001FC322 /* ViewController.swift */; };
 		E4AC94C426327E78001FC322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4AC94C226327E78001FC322 /* Main.storyboard */; };
 		E4AC94C626327E7B001FC322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4AC94C526327E7B001FC322 /* Assets.xcassets */; };
@@ -31,7 +30,6 @@
 		4EAAFEC71135F7E0E97E973E /* Pods_ZXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC94B926327E78001FC322 /* ZXKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZXKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AC94BC26327E78001FC322 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4AC94BE26327E78001FC322 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E4AC94C026327E78001FC322 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4AC94C326327E78001FC322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4AC94C526327E7B001FC322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			children = (
 				E4AC94D32632AC61001FC322 /* pod */,
 				E4AC94BC26327E78001FC322 /* AppDelegate.swift */,
-				E4AC94BE26327E78001FC322 /* SceneDelegate.swift */,
 				E4AC94C026327E78001FC322 /* ViewController.swift */,
 				E4AC94C226327E78001FC322 /* Main.storyboard */,
 				E4AC94C526327E7B001FC322 /* Assets.xcassets */,
@@ -264,7 +261,6 @@
 				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,
 				E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */,
 				E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */,
-				E4AC94BF26327E78001FC322 /* SceneDelegate.swift in Sources */,
 				E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */,
 				E4AC94E62632BE72001FC322 /* PluginDemo.swift in Sources */,
 			);
@@ -427,7 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZXKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,7 +443,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZXKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
