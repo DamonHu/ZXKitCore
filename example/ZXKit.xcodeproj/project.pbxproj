@@ -23,6 +23,7 @@
 		E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */; };
 		E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */; };
 		E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */; };
+		E4AC94FE26355664001FC322 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4AC950026355664001FC322 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo2.swift; sourceTree = "<group>"; };
 		E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo3.swift; sourceTree = "<group>"; };
 		E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitFloatWindow.swift; sourceTree = "<group>"; };
+		E4AC94FF26355664001FC322 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E4AC950226355680001FC322 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,7 @@
 		E4AC94D32632AC61001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4AC94F92635561F001FC322 /* localizable */,
 				E4AC94D42632AC8B001FC322 /* ZXKit.swift */,
 				E4AC94D82632AD4D001FC322 /* ZXKitPluginProtocol.swift */,
 				E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */,
@@ -116,6 +120,14 @@
 			);
 			name = pod;
 			path = ../../pod;
+			sourceTree = "<group>";
+		};
+		E4AC94F92635561F001FC322 /* localizable */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC950026355664001FC322 /* Localizable.strings */,
+			);
+			path = localizable;
 			sourceTree = "<group>";
 		};
 		F4427EA4A38B0875A04936AC /* Pods */ = {
@@ -170,6 +182,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = E4AC94B026327E78001FC322;
 			productRefGroup = E4AC94BA26327E78001FC322 /* Products */;
@@ -187,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AC94C926327E7B001FC322 /* LaunchScreen.storyboard in Resources */,
+				E4AC94FE26355664001FC322 /* Localizable.strings in Resources */,
 				E4AC94C626327E7B001FC322 /* Assets.xcassets in Resources */,
 				E4AC94C426327E78001FC322 /* Main.storyboard in Resources */,
 			);
@@ -275,6 +289,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		E4AC950026355664001FC322 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4AC94FF26355664001FC322 /* en */,
+				E4AC950226355680001FC322 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -282,6 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -343,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -69,7 +69,7 @@ extension ZXKitWindow: UICollectionViewDelegate,UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let title = ["UI", "Data", "Other"]
+        let title = [NSLocalizedString("UI", comment: ""), NSLocalizedString("Data", comment: ""), NSLocalizedString("Other", comment: "")]
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ZXKitCollectionViewHeaderView", for: indexPath) as! ZXKitCollectionViewHeaderView
         cell.updateUI(title: title[indexPath.section])
         return cell
@@ -100,9 +100,9 @@ private extension ZXKitWindow {
         }
         rootViewController.navigationItem.titleView = view
         //navigationBar
-        let leftBarItem = UIBarButtonItem(title: NSLocalizedString("关闭", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
+        let leftBarItem = UIBarButtonItem(title: NSLocalizedString("close", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
         rootViewController.navigationItem.leftBarButtonItem = leftBarItem
-        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("隐藏", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("hide", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
         rootViewController.navigationItem.rightBarButtonItem = rightBarItem
         //
         self.rootViewController = navigation
