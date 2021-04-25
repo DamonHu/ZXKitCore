@@ -18,7 +18,8 @@ class ZXKitCollectionViewHeaderView: UICollectionViewCell {
     }
 
     func createUI() {
-        self.contentView.backgroundColor = UIColor(displayP3Red: 112.0/255.0, green: 161.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+//        self.contentView.backgroundColor = UIColor(displayP3Red: 112.0/255.0, green: 161.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        self.contentView.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
         self.contentView.addSubview(mTitleLabel)
         mTitleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(20)
@@ -36,8 +37,8 @@ class ZXKitCollectionViewHeaderView: UICollectionViewCell {
         let tLabel = UILabel()
         tLabel.numberOfLines = 2
         tLabel.textAlignment = .left
-        tLabel.font = .systemFont(ofSize: 16, weight: .medium)
-        tLabel.textColor = UIColor(displayP3Red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        tLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        tLabel.textColor = UIColor.zx.color(hexValue: 0xffffff)
         return tLabel
     }()
 }

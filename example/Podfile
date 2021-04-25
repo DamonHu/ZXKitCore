@@ -7,4 +7,5 @@ target 'ZXKit' do
 
   # Pods for ZXKit
   pod 'SnapKit'
+  pod 'ZXKitUtil'
 end

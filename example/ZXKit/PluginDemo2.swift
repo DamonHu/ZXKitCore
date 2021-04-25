@@ -17,7 +17,7 @@ extension PluginDemo2: ZXKitPluginProtocol {
     }
 
     var pluginTitle: String {
-        return "插件测试2"
+        return "插件"
     }
 
     var pluginType: ZXKitPluginType {

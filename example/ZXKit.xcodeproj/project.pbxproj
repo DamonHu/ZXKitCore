@@ -22,6 +22,7 @@
 		E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */; };
 		E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */; };
 		E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */; };
+		E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitCollectionViewHeaderView.swift; sourceTree = "<group>"; };
 		E4AC94EB2632C3C4001FC322 /* PluginDemo2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo2.swift; sourceTree = "<group>"; };
 		E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDemo3.swift; sourceTree = "<group>"; };
+		E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitFloatWindow.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */,
 				E4AC94DF2632B881001FC322 /* ZXKitPluginCollectionViewCell.swift */,
 				E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */,
+				E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */,
 			);
 			name = pod;
 			path = ../../pod;
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4AC94E02632B881001FC322 /* ZXKitPluginCollectionViewCell.swift in Sources */,
+				E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */,
 				E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */,
 				E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */,
 				E4AC94C126327E78001FC322 /* ViewController.swift in Sources */,

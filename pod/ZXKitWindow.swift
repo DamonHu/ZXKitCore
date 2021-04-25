@@ -12,22 +12,18 @@ class ZXKitWindow: UIWindow {
     @available(iOS 13.0, *)
     override init(windowScene: UIWindowScene) {
         super.init(windowScene: windowScene)
-        self.initVC()
-        self.createUI()
+        self._initVC()
+        self._createUI()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initVC()
-        self.createUI()
+        self._initVC()
+        self._createUI()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func reloadData() {
-        self.mCollectionView.reloadData()
     }
 
     //MARK: UI
@@ -38,7 +34,6 @@ class ZXKitWindow: UIWindow {
         tCollectionViewLayout.minimumLineSpacing = 0
         tCollectionViewLayout.minimumInteritemSpacing = 0
         tCollectionViewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 40)
-//        tCollectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         let tCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: tCollectionViewLayout)
         tCollectionView.contentInsetAdjustmentBehavior = .never
         tCollectionView.backgroundColor = UIColor.clear
@@ -50,6 +45,12 @@ class ZXKitWindow: UIWindow {
         tCollectionView.register(ZXKitCollectionViewHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ZXKitCollectionViewHeaderView")
         return tCollectionView
     }()
+}
+
+extension ZXKitWindow {
+    func reloadData() {
+        self.mCollectionView.reloadData()
+    }
 }
 
 extension ZXKitWindow: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -76,34 +77,48 @@ extension ZXKitWindow: UICollectionViewDelegate,UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let plugin = ZXKit.pluginList[indexPath.section][indexPath.item]
+        ZXKit.hide()
         plugin.start()
     }
 }
 
-extension ZXKitWindow {
+private extension ZXKitWindow {
 
-    func initVC() {
+    func _initVC() {
+        self.backgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.6)
         let rootViewController = UIViewController()
 
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.navigationBar.barTintColor = UIColor.white
-        //设置标题
+        //set title
         let view = UIView()
         let label = UILabel()
         label.attributedText = NSAttributedString(string: "ZXKIT", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 18, weight: .medium), NSAttributedString.Key.foregroundColor:UIColor.black])
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
-            make.left.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         }
         rootViewController.navigationItem.titleView = view
-        
-        //设置右键
+        //navigationBar
+        let leftBarItem = UIBarButtonItem(title: NSLocalizedString("关闭", comment: ""), style: .plain, target: self, action: #selector(_leftBarItemClick))
+        rootViewController.navigationItem.leftBarButtonItem = leftBarItem
+        let rightBarItem = UIBarButtonItem(title: NSLocalizedString("隐藏", comment: ""), style: .plain, target: self, action: #selector(_rightBarItemClick))
+        rootViewController.navigationItem.rightBarButtonItem = rightBarItem
+        //
         self.rootViewController = navigation
         self.windowLevel =  UIWindow.Level.alert
         self.isUserInteractionEnabled = true
     }
 
-    func createUI() {
+    @objc func _leftBarItemClick() {
+        ZXKit.close()
+    }
+
+    @objc func _rightBarItemClick() {
+        ZXKit.hide()
+    }
+
+    func _createUI() {
         guard let navigationController = self.rootViewController as? UINavigationController, let rootViewController = navigationController.topViewController else {
             return
         }

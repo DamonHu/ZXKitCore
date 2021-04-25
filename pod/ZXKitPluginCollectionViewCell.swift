@@ -19,6 +19,8 @@ class ZXKitPluginCollectionViewCell: UICollectionViewCell {
     }
 
     func createUI() {
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.zx.color(hexValue: 0xd8e3e7).cgColor
         self.contentView.addSubview(mImageView)
         mImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
@@ -30,7 +32,7 @@ class ZXKitPluginCollectionViewCell: UICollectionViewCell {
         mTitleLabel.snp.makeConstraints {
             $0.left.equalToSuperview().offset(10)
             $0.right.equalToSuperview().offset(-10)
-            $0.top.equalTo(mImageView.snp.bottom).offset(10)
+            $0.top.equalTo(mImageView.snp.bottom).offset(5)
         }
     }
 
@@ -52,8 +54,8 @@ class ZXKitPluginCollectionViewCell: UICollectionViewCell {
         let tLabel = UILabel()
         tLabel.numberOfLines = 2
         tLabel.textAlignment = .center
-        tLabel.font = .systemFont(ofSize: 14)
-        tLabel.textColor = UIColor.black
+        tLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        tLabel.textColor = UIColor.zx.color(hexValue: 0x666666)
         return tLabel
     }()
 }
