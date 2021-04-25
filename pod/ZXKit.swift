@@ -30,6 +30,9 @@ public class ZXKit: NSObject {
     }
 
     public static func show() {
+        print(self.pluginList)
+        //default plugin
+        self.defaultPluginLaunch()
         self.floatWindow?.isHidden = true
         DispatchQueue.main.async {
             if let window = self.window {

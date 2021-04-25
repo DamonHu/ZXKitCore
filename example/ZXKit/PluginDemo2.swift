@@ -27,6 +27,4 @@ extension PluginDemo2: ZXKitPluginProtocol {
     func start() {
         print("点击开始使用该插件2222222")
     }
-
-
 }

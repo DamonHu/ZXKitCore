@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'ZXKitCore'
 s.swift_version = '5.0'
-s.version = '0.0.8'
+s.version = '0.0.9'
 s.license= { :type => "Apache-2.0 License", :file => "LICENSE" }
 s.summary = 'ZXKit Core'
 s.homepage = 'https://github.com/ZXKitCode/ZXKit'
@@ -14,6 +14,10 @@ s.subspec 'core' do |cs|
     cs.dependency 'SnapKit'
     cs.dependency 'ZXKitUtil'
 end
-s.default_subspecs = "core"
+s.subspec 'common' do |cs|
+    cs.dependency 'ZXKitCore/core'
+    cs.dependency 'ZXKitLogger/zxkit'
+end
+s.default_subspecs = "common"
 s.documentation_url = 'http://blog.hudongdong.com/swift/1079.html'
 end
