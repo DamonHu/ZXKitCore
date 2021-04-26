@@ -8,7 +8,7 @@
 > 
 > The world is not benevolent, and everything is a dog
 
-## Add plugin for ZXKit
+## 1、Add plugin for ZXKit
 
 If you need to develop a custom plug-in, you only need to implement `ZXKitPluginProtocol`. The way of implementation is very simple.
 
@@ -51,6 +51,21 @@ After that, you can register the plug-in, you only need to register once globall
 ## 4. Done
 
 After cocoapods is released and online, when the user opens `ZXKit`, your plug-in will appear on the debug collection page
+
+## 2、NSNotification
+
+`ZXKitCore` provides the following message notifications, you can get the frame display, hide, close, and register new plug-in timing by binding the following notifications
+
+```
+//new plug-in regist
+NSNotification.Name. ZXKitPluginRegist
+//show
+NSNotification.Name. ZXKitShow
+//hide
+NSNotification.Name. ZXKitHide
+//close
+NSNotification.Name. ZXKitClose
+```
 
 ## Default installation
 

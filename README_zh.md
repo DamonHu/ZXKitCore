@@ -5,7 +5,7 @@
 > 天地不仁，以万物为刍狗
 
 
-## 为ZXKit增加plugin
+## 一、为ZXKit增加plugin
 
 如果需要开发自定义插件，只需要实现`ZXKitPluginProtocol`即可。实现的方式很简单。
 
@@ -54,9 +54,25 @@ ZXKit.regist(plugin: PluginDemo())
 
 cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
 
+## 二、消息通知
+
+`ZXKitCore`提供了以下消息通知，您可以通过绑定以下通知获取框架显示、隐藏、关闭、注册新插件的时机
+
+```
+//注册新插件
+NSNotification.Name. ZXKitPluginRegist
+//显示
+NSNotification.Name. ZXKitShow
+//隐藏
+NSNotification.Name. ZXKitHide
+//关闭
+NSNotification.Name. ZXKitClose
+```
+
 ## 默认安装
 
 我们会不时收录优秀的调试库，当用户执行安装`ZXKitSwift`时，会默认安装。如您想收录将插件收录到`ZXKitSwift`默认的集成库中，首先确认您没有使用`iOS`私有函数等影响App Store上架的违规因素，然后可以在[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)通知我们即可
+
 
 ## License
 
