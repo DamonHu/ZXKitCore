@@ -69,7 +69,7 @@ NSNotification.Name. ZXKitClose
 
 ## Default installation
 
-We will collect excellent debugging libraries from time to time. When users execute the installation of `ZXKitSwift`, they will be installed by default. If you want to include the plug-in in the default integrated library of `ZXKitSwift`, first confirm that you are not using the `iOS` private functions and other illegal factors that affect the App Store listing, and then you can download it in [ZXKitSwift](https://github.com /ZXKitCode/ZXKitSwift) just notify us
+We will collect excellent debugging libraries from time to time. When users execute the installation of `ZXKitSwift`, they will be installed by default. If you want to include the plug-in in the default integrated library of `ZXKitSwift`, first confirm that you are not using the `iOS` private functions and other illegal factors that affect the App Store listing, and then you can download it in [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift) just notify us
 
 ## License
 
