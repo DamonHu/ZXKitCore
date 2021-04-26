@@ -23,7 +23,6 @@
 		E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */; };
 		E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */; };
 		E4AC94FE26355664001FC322 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4AC950026355664001FC322 /* Localizable.strings */; };
-		E4AC952226357457001FC322 /* ZXKitLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC952126357456001FC322 /* ZXKitLaunch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 		E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitFloatWindow.swift; sourceTree = "<group>"; };
 		E4AC94FF26355664001FC322 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E4AC950226355680001FC322 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		E4AC952126357456001FC322 /* ZXKitLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitLaunch.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +114,6 @@
 				E4AC94DF2632B881001FC322 /* ZXKitPluginCollectionViewCell.swift */,
 				E4AC94E82632C242001FC322 /* ZXKitCollectionViewHeaderView.swift */,
 				E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */,
-				E4AC952126357456001FC322 /* ZXKitLaunch.swift */,
 			);
 			name = pod;
 			path = ../../pod;
@@ -264,7 +261,6 @@
 				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,
 				E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */,
 				E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */,
-				E4AC952226357457001FC322 /* ZXKitLaunch.swift in Sources */,
 				E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */,
 				E4AC94E62632BE72001FC322 /* PluginDemo.swift in Sources */,
 			);
