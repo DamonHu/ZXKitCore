@@ -1,22 +1,62 @@
-# ZXKit
+# ZXKitCore
 
-`ZXKit`是一个iOS端整合的调试工具框架，名字取自我很喜欢的一本小说《诛仙》。
+`ZXKitSwift`是一个iOS平台整合的开发调试工具，名字取自我很喜欢的一本小说《诛仙》。`ZXKitCore`是`ZXKitSwift`的支撑框架，主要针对`ZXKitSwift`拓展开发者使用。
 
 > 天地不仁，以万物为刍狗
 
-因为之前开发的调试框架比较分散，所以希望可以通过一个通用的框架，类似于插件的结构去组合不同的调试工具。该工具是为了高效的定位解决问题，而不是追求大而全，所以iOS端私有函数、禁用的接口等影响App Store上线的功能，默认都不会提供。
 
-当然您也可以指定自定义插件安装，自定义插件可能会调用iOS系统的禁用函数导致审核被拒，集成之前请确认一下哦~
+## 为ZXKit增加plugin
 
-## 默认功能
+如果需要开发自定义插件，只需要实现`ZXKitPluginProtocol`即可。实现的方式很简单。
 
-- [ ] log日志
-- [ ] 网络ping检测
-- [ ] FPS检测
+## 1、导入核心文件
 
-## 自定义插件
+项目导入`ZXKitCore`，可使用cocoapods快速导入核心文件
 
-如果需要开发自定义插件，只需要实现`ZXKitPluginProtocol`即可。实现的方式很简单，可以参考该文章
+```
+pod 'ZXKitCore/core'
+```
+
+## 2、实现协议
+
+声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应的icon、插件名字、插件类型分组、启动函数
+
+```
+extension PluginDemo: ZXKitPluginProtocol {
+    var pluginIcon: UIImage? {
+        return UIImage(named: "zxkit")
+    }
+
+    var pluginTitle: String {
+        return "插件标题"
+    }
+
+    var pluginType: ZXKitPluginType {
+        return .ui
+    }
+
+    func start() {
+        print("点击启动该插件")
+    }
+}
+```
+
+## 3、注册插件
+
+之后注册插件即可，全局只需注册一次，多次注册会导致重复显示
+
+```
+//注册插件
+ZXKit.regist(plugin: PluginDemo())
+```
+
+## 4、完成
+
+cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
+
+## 默认安装
+
+我们会不时收录优秀的调试库，当用户执行安装`ZXKitSwift`时，会默认安装。如您想收录将插件收录到`ZXKitSwift`默认的集成库中，首先确认您没有使用`iOS`私有函数等影响App Store上架的违规因素，然后可以在[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)通知我们即可
 
 ## License
 
