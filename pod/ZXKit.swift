@@ -18,6 +18,9 @@ public class ZXKit: NSObject {
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
     static var pluginList = [[ZXKitPluginProtocol](), [ZXKitPluginProtocol](), [ZXKitPluginProtocol]()]
+    public static var floatButton: UIButton? {
+        return self.floatWindow?.mButton
+    }
 
     public static func regist(plugin: ZXKitPluginProtocol) {
         NotificationCenter.default.post(name: .ZXKitPluginRegist, object: plugin)
