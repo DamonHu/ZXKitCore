@@ -54,10 +54,16 @@ After cocoapods is released and online, when the user opens `ZXKit`, your plug-i
 
 ## 5. More configurations
 
-### 5.1、Floating button
+### 5.1、get floate button
 
 ```
 ZXKit.floatButton
+```
+
+### 5.2、reset Float Button
+
+```
+ZXKit.resetFloatButton()
 ```
 
 ## 2、NSNotification
