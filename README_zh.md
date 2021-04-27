@@ -54,6 +54,14 @@ ZXKit.regist(plugin: PluginDemo())
 
 cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
 
+## 5、更多属性
+
+### 5.1、悬浮的按钮
+
+```
+ZXKit.floatButton
+```
+
 ## 二、消息通知
 
 `ZXKitCore`提供了以下消息通知，您可以通过绑定以下通知获取框架显示、隐藏、关闭、注册新插件的时机
