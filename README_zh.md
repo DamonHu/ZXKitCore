@@ -23,6 +23,10 @@ pod 'ZXKitCore/core'
 
 ```
 extension PluginDemo: ZXKitPluginProtocol {
+	var pluginIdentifier: String {
+        return "com.zxkit.pluginDemo"
+    }
+    
     var pluginIcon: UIImage? {
         return UIImage(named: "zxkit")
     }
@@ -74,13 +78,13 @@ ZXKit.resetFloatButton()
 
 ```
 //注册新插件
-NSNotification.Name. ZXKitPluginRegist
+NSNotification.Name.ZXKitPluginRegist
 //显示
-NSNotification.Name. ZXKitShow
+NSNotification.Name.ZXKitShow
 //隐藏
-NSNotification.Name. ZXKitHide
+NSNotification.Name.ZXKitHide
 //关闭
-NSNotification.Name. ZXKitClose
+NSNotification.Name.ZXKitClose
 ```
 
 ## 默认安装
