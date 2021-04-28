@@ -52,8 +52,8 @@ public class ZXKit: NSObject {
 
     public static func show() {
         NotificationCenter.default.post(name: .ZXKitShow, object: nil)
-        self.floatWindow?.isHidden = true
         DispatchQueue.main.async {
+            self.floatWindow?.isHidden = true
             if let window = self.window {
                 window.isHidden = false
             } else {
