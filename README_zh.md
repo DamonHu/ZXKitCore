@@ -23,7 +23,8 @@ pod 'ZXKitCore/core'
 
 ```
 extension PluginDemo: ZXKitPluginProtocol {
-	var pluginIdentifier: String {
+
+    var pluginIdentifier: String {
         return "com.zxkit.pluginDemo"
     }
     
