@@ -22,7 +22,7 @@ pod 'ZXKitCore/core'
 
 ## 2. Implement the agreement
 
-Declare an object and follow the `ZXKitPluginProtocol` protocol. Respectively return the corresponding icon, plug-in name, plug-in type grouping, and startup function
+Declare an object and follow the `ZXKitPluginProtocol` protocol. Respectively return the unique ID of the plug-in, the corresponding icon, plug-in name, plug-in type grouping, and startup function
 
 ```
 extension PluginDemo: ZXKitPluginProtocol {
@@ -50,7 +50,7 @@ extension PluginDemo: ZXKitPluginProtocol {
 
 ## 3. Register the plug-in
 
-After that, you can register the plug-in, you only need to register once globally, and multiple registrations will cause repeated display
+After that, you can register the plug-in, you only need to register once globally
 
 ## 4. Done
 

@@ -19,7 +19,7 @@ pod 'ZXKitCore/core'
 
 ## 2、实现协议
 
-声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应的icon、插件名字、插件类型分组、启动函数
+声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应插件的唯一标识，对应的icon、插件名字、插件类型分组、启动函数
 
 ```
 extension PluginDemo: ZXKitPluginProtocol {
@@ -48,7 +48,7 @@ extension PluginDemo: ZXKitPluginProtocol {
 
 ## 3、注册插件
 
-之后注册插件即可，全局只需注册一次，多次注册会导致重复显示
+之后注册插件即可，全局只需注册一次即可
 
 ```
 //注册插件
