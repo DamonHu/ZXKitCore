@@ -26,7 +26,7 @@ Declare an object and follow the `ZXKitPluginProtocol` protocol. Respectively re
 
 ```
 extension PluginDemo: ZXKitPluginProtocol {
-	var pluginIdentifier: String {
+    var pluginIdentifier: String {
         return "com.zxkit.pluginDemo"
     }
     
