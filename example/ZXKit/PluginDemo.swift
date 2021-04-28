@@ -12,6 +12,10 @@ class PluginDemo: NSObject {
 }
 
 extension PluginDemo: ZXKitPluginProtocol {
+    var pluginIdentifier: String {
+        return "com.zxkit.pluginDemo"
+    }
+    
     var pluginIcon: UIImage? {
         return UIImage(named: "zxkit")
     }

@@ -35,13 +35,19 @@ public class ZXKit: NSObject {
 
     public static func regist(plugin: ZXKitPluginProtocol) {
         NotificationCenter.default.post(name: .ZXKitPluginRegist, object: plugin)
+        var index = 0
         switch plugin.pluginType {
             case .ui:
-                self.pluginList[0].append(plugin)
+                index = 0
             case .data:
-                self.pluginList[1].append(plugin)
+                index = 1
             case .other:
-                self.pluginList[2].append(plugin)
+                index = 2
+        }
+        if !self.pluginList[index].contains(where: { (tPlugin) -> Bool in
+            return tPlugin.pluginIdentifier == plugin.pluginIdentifier
+        }) {
+            self.pluginList[index].append(plugin)
         }
         if let window = self.window, !window.isHidden {
             DispatchQueue.main.async {

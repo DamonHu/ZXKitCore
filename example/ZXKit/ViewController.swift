@@ -13,6 +13,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //regist
         ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
+        ZXKit.regist(plugin: PluginDemo())
         //第二种
         ZXKit.regist(plugin: PluginDemo2())
         //other
