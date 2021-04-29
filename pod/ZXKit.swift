@@ -110,4 +110,8 @@ public class ZXKit: NSObject {
             self.floatWindow?.isHidden = true
         }
     }
+
+    public static func showInput(complete: ((String)->Void)?) {
+        self.window?.showInput(complete: complete)
+    }
 }
