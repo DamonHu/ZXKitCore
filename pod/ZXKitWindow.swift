@@ -91,10 +91,11 @@ extension ZXKitWindow {
     func showInput(complete: ((String)->Void)?) {
         self.inputComplete = complete
         self.mInputBGView.isHidden = false
+        self.mTextField.becomeFirstResponder()
     }
 
     func hideInput() {
-        self.mTextField.resignFirstResponder()
+        self.mTextField.endEditing(true)
         self.mInputBGView.isHidden = true
         self.mTextField.placeholder = NSLocalizedString("input text", comment: "")
         self.mTextField.text = ""
