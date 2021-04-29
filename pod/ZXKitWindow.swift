@@ -95,7 +95,6 @@ extension ZXKitWindow {
 
     func hideInput() {
         self.mTextField.resignFirstResponder()
-        self.inputComplete = nil
         self.mInputBGView.isHidden = true
         self.mTextField.placeholder = NSLocalizedString("input text", comment: "")
         self.mTextField.text = ""

@@ -117,6 +117,7 @@ public class ZXKit: NSObject {
     }
 
     public static func showInput(complete: ((String)->Void)?) {
+        ZXKit.show()
         self.window?.showInput(complete: complete)
     }
 }
