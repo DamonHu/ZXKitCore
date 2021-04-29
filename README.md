@@ -70,6 +70,20 @@ ZXKit.floatButton
 ZXKit.resetFloatButton()
 ```
 
+### 5.3、Display textField
+
+```
+ZXKit.showInput { (text) in
+	print(text)
+}
+```
+
+### 5.4、get textField
+
+```
+ZXKit.textField
+```
+
 ## 2、NSNotification
 
 `ZXKitCore` provides the following message notifications, you can get the frame display, hide, close, and register new plug-in timing by binding the following notifications
