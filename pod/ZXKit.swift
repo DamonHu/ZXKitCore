@@ -23,6 +23,11 @@ public class ZXKit: NSObject {
         return self.floatWindow?.mButton
     }
 
+    public static var textField: UITextField? {
+        return self.window?.mTextField
+    }
+
+
     public static func resetFloatButton() {
         self.floatButton?.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
         self.floatButton?.setTitle(NSLocalizedString("Z", comment: ""), for: UIControl.State.normal)
