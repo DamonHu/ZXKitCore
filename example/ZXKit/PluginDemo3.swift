@@ -32,5 +32,11 @@ extension PluginDemo3: ZXKitPluginProtocol {
         print("点击开始使用该插件")
     }
 
+    var isRunning: Bool {
+        return false
+    }
 
+    func stop() {
+
+    }
 }

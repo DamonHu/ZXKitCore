@@ -31,4 +31,12 @@ extension PluginDemo2: ZXKitPluginProtocol {
     func start() {
         print("点击开始使用该插件2222222")
     }
+
+    var isRunning: Bool {
+        return true
+    }
+
+    func stop() {
+        print("该插件为系统插件，不能停止运行")
+    }
 }

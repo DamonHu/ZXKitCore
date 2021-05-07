@@ -8,10 +8,11 @@
 import UIKit
 
 class PluginDemo: NSObject {
-
+    var isPluginRunning = true
 }
 
 extension PluginDemo: ZXKitPluginProtocol {
+
     var pluginIdentifier: String {
         return "com.zxkit.pluginDemo"
     }
@@ -30,5 +31,15 @@ extension PluginDemo: ZXKitPluginProtocol {
 
     func start() {
         print("点击开始使用该插件")
+        isPluginRunning = true
+    }
+
+    var isRunning: Bool {
+        return isPluginRunning
+    }
+
+    func stop() {
+        print("插件停止运行")
+        isPluginRunning = false
     }
 }
