@@ -22,6 +22,10 @@ pod 'ZXKitCore/core'
 声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应插件的唯一标识，对应的icon、插件名字、插件类型分组、启动函数
 
 ```
+class PluginDemo: NSObject {
+    var isPluginRunning = true
+}
+
 extension PluginDemo: ZXKitPluginProtocol {
 
     var pluginIdentifier: String {
@@ -42,6 +46,16 @@ extension PluginDemo: ZXKitPluginProtocol {
 
     func start() {
         print("点击启动该插件")
+        isPluginRunning = true
+    }
+    
+    var isRunning: Bool {
+        return isPluginRunning
+    }
+
+    func stop() {
+        print("插件停止运行")
+        isPluginRunning = false
     }
 }
 ```
