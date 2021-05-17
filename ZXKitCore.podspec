@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'ZXKitCore'
 s.swift_version = '5.0'
-s.version = '0.1.2'
+s.version = '0.1.3'
 s.license= { :type => "Apache-2.0 License", :file => "LICENSE" }
 s.summary = 'ZXKitCore is the supporting framework of ZXKitSwift, for ZXKitSwift plugin developers'
 s.homepage = 'https://github.com/ZXKitCode/core'
