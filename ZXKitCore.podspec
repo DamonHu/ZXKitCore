@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = 'ZXKitCore'
 s.swift_version = '5.0'
-s.version = '0.1.3'
+s.version = '0.1.4'
 s.license= { :type => "Apache-2.0 License", :file => "LICENSE" }
 s.summary = 'ZXKitCore is the supporting framework of ZXKitSwift, for ZXKitSwift plugin developers'
 s.homepage = 'https://github.com/ZXKitCode/core'
@@ -10,6 +10,9 @@ s.source = { :git => "https://github.com/ZXKitCode/core.git", :tag => s.version}
 s.requires_arc = true
 s.ios.deployment_target = '11.0'
 s.subspec 'core' do |cs|
+    cs.resource_bundles = {
+        'ZXKitCore' => ['pod/localizable/**/*']
+    }
     cs.source_files = "pod/*.swift", "pod/localizable/**/*"
     cs.dependency 'SnapKit'
     cs.dependency 'ZXKitUtil'
