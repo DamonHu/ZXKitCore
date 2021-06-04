@@ -9,7 +9,7 @@ import UIKit
 
 extension String{
     var ZXLocaleString: String {
-        guard let bundlePath = Bundle(for: ZXKit.self).path(forResource: "ZXKit", ofType: "bundle") else { return NSLocalizedString(self, comment: "") }
+        guard let bundlePath = Bundle(for: ZXKit.self).path(forResource: "ZXKitCore", ofType: "bundle") else { return NSLocalizedString(self, comment: "") }
         guard let bundle = Bundle(path: bundlePath) else { return NSLocalizedString(self, comment: "") }
         let msg = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
         return msg
