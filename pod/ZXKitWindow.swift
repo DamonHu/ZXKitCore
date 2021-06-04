@@ -153,7 +153,7 @@ extension ZXKitWindow: UITextFieldDelegate {
 private extension ZXKitWindow {
 
     func _initVC() {
-        self.backgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.6)
+        self.backgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.93)
         let rootViewController = UIViewController()
 
         let navigation = UINavigationController(rootViewController: rootViewController)
