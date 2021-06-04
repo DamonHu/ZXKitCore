@@ -48,7 +48,6 @@ public class ZXKit: NSObject {
     }
 
     public static func regist(plugin: ZXKitPluginProtocol) {
-        NotificationCenter.default.post(name: .ZXKitPluginRegist, object: plugin)
         var index = 0
         switch plugin.pluginType {
             case .ui:
@@ -68,6 +67,7 @@ public class ZXKit: NSObject {
                 window.reloadData()
             }
         }
+        NotificationCenter.default.post(name: .ZXKitPluginRegist, object: self.pluginList)
     }
 
     public static func show() {
