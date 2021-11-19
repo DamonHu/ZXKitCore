@@ -1,15 +1,16 @@
 # ZXKitCore
 
-`ZXKitSwift`是一个iOS平台整合的开发调试工具，名字取自我很喜欢的一本小说《诛仙》。`ZXKitCore`是`ZXKitSwift`的支撑框架，主要针对`ZXKitSwift`拓展开发者使用。
+`ZXKitCore`是ZXKit插件的支撑框架，提供了插件显示、管理等功能，只需要实现对应的`ZXKitPluginProtocol`协议，即可快速的开发出ZXKit插件并显示使用。该文档提供了插件开发教程和使用教程，开发者可以根据需要查看。
 
-> 天地不仁，以万物为刍狗
+> 天地不仁，以万物为刍狗 		
+>  -诛仙
 
 
-## 一、为ZXKit增加plugin
+## 开发一个ZXKit插件
 
 如果需要开发自定义插件，只需要实现`ZXKitPluginProtocol`即可。实现的方式很简单。
 
-## 1、导入核心文件
+### 1、导入核心文件
 
 项目导入`ZXKitCore`，可使用cocoapods快速导入核心文件
 
@@ -17,7 +18,7 @@
 pod 'ZXKitCore/core'
 ```
 
-## 2、实现协议
+### 2、实现协议
 
 声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应插件的唯一标识，对应的icon、插件名字、插件类型分组、启动函数
 
@@ -27,7 +28,7 @@ class PluginDemo: NSObject {
 }
 
 extension PluginDemo: ZXKitPluginProtocol {
-
+	 //唯一标识
     var pluginIdentifier: String {
         return "com.zxkit.pluginDemo"
     }
@@ -60,34 +61,33 @@ extension PluginDemo: ZXKitPluginProtocol {
 }
 ```
 
-## 3、注册插件
+### 3、注册插件
 
 之后注册插件即可，全局只需注册一次即可
 
 ```
-//注册插件
 ZXKit.regist(plugin: PluginDemo())
 ```
 
-## 4、完成
+### 4、完成
 
 cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
 
-## 5、更多属性
+### 5、更多属性
 
-### 5.1、获取悬浮的按钮对象
+#### 5.1、获取悬浮的按钮对象
 
 ```
 ZXKit.floatButton
 ```
 
-### 5.2、还原悬浮按钮的样式
+#### 5.2、还原悬浮按钮的样式
 
 ```
 ZXKit.resetFloatButton()
 ```
 
-### 5.3、显示输入框
+#### 5.3、显示输入框
 
 ```
 ZXKit.showInput { (text) in
@@ -95,13 +95,13 @@ ZXKit.showInput { (text) in
 }
 ```
 
-### 5.4、获得输入框对象
+#### 5.4、获得输入框对象
 
 ```
 ZXKit.textField
 ```
 
-## 二、消息通知
+### 消息通知
 
 `ZXKitCore`提供了以下消息通知，您可以通过绑定以下通知获取框架显示、隐藏、关闭、注册新插件的时机
 
@@ -116,10 +116,42 @@ NSNotification.Name.ZXKitHide
 NSNotification.Name.ZXKitClose
 ```
 
-## 默认安装
+## 安装使用ZXKit插件
 
-我们会不时收录优秀的调试库，当用户执行安装`ZXKitSwift`时，会默认安装。如您想收录将插件收录到`ZXKitSwift`默认的集成库中，首先确认您没有使用`iOS`私有函数等影响App Store上架的违规因素，然后可以在[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)通知我们即可
+`ZXKit`插件使用很简单，只需要导入对应的库，在`AppDelegate`启动函数注册即可。例如安装`日志插件ZXKitLogger`。
 
+### 首先pod安装对应插件
+
+```
+pod 'ZXKitLogger/zxkit'
+```
+### 注册插件
+
+```
+ZXKit.regist(plugin: ZXKitLogger.shared)
+```
+
+### 打开插件列表
+
+```
+ZXKit.show()
+```
+
+### 隐藏插件列表
+
+```
+ZXKit.hide()
+```
+
+### 关闭插件列表
+
+```
+ZXKit.close()
+```
+
+## ZXKitSwift
+
+我们发布了一个cocoaPods库，名字叫[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)，这是一个集成了多个ZXKit插件的工具库。可以帮助你快速使用多个调试功能。
 
 ## License
 
