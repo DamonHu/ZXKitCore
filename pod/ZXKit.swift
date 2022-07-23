@@ -26,6 +26,7 @@ public extension NSNotification.Name {
 public class ZXKit: NSObject {
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
+    public static var UIConfig = ZXKitUIConfig()
     static var pluginList = [[ZXKitPluginProtocol](), [ZXKitPluginProtocol](), [ZXKitPluginProtocol]()]
     
     public static var floatButton: UIButton? {
@@ -38,7 +39,7 @@ public class ZXKit: NSObject {
 
 
     public static func resetFloatButton() {
-        self.floatButton?.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
+        self.floatButton?.backgroundColor = ZXKit.UIConfig.floatButtonColor
         self.floatButton?.setTitle("Z".ZXLocaleString, for: UIControl.State.normal)
         self.floatButton?.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         self.floatButton?.layer.borderColor = UIColor.zx.color(hexValue: 0xffffff).cgColor

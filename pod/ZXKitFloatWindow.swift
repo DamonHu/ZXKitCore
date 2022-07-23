@@ -29,7 +29,7 @@ class ZXKitFloatWindow: UIWindow {
 
     lazy var mButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.backgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
+        button.backgroundColor = ZXKit.UIConfig.floatButtonColor
         button.setTitle("Z".ZXLocaleString, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         button.layer.borderColor = UIColor.zx.color(hexValue: 0xffffff).cgColor
