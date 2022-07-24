@@ -151,8 +151,6 @@ public extension ZXKit {
 
     static func showInput(placeholder: String?, text: String?, complete: ((String)->Void)?) {
         ZXKit.show()
-        self.window?.mTextField.placeholder = placeholder
-        self.window?.mTextField.text = text
-        self.window?.showInput(complete: complete)
+        self.window?.showInput(placeholder: placeholder, text: text, complete: complete)
     }
 }

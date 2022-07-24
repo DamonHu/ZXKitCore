@@ -88,8 +88,10 @@ extension ZXKitWindow {
         self.mCollectionView.reloadData()
     }
 
-    func showInput(complete: ((String)->Void)?) {
+    func showInput(placeholder: String?, text: String?, complete: ((String)->Void)?) {
         self.inputComplete = complete
+        self.mTextField.placeholder = placeholder
+        self.mTextField.text = text
         self.mInputBGView.isHidden = false
         self.mTextField.becomeFirstResponder()
     }
@@ -179,10 +181,16 @@ private extension ZXKitWindow {
     }
 
     @objc func _leftBarItemClick() {
+        if !self.mInputBGView.isHidden {
+            self.hideInput()
+        }
         ZXKit.close()
     }
 
     @objc func _rightBarItemClick() {
+        if !self.mInputBGView.isHidden {
+            self.hideInput()
+        }
         ZXKit.hide()
     }
 
