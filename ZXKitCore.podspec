@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 s.name = 'ZXKitCore'
 s.swift_version = '5.0'
-s.version = '0.1.9'
-s.license= { :type => "Apache-2.0 License", :file => "LICENSE" }
+s.version = '1.0.0'
+s.license= { :type => "MIT", :file => "LICENSE" }
 s.summary = 'ZXKitCore is the supporting framework of ZXKitSwift, for ZXKitSwift plugin developers'
-s.homepage = 'https://github.com/ZXKitCode/core'
+s.homepage = 'https://github.com/DamonHu/ZXKitCore'
 s.authors = { 'ZXKitCode' => 'dong765@qq.com' }
-s.source = { :git => "https://github.com/ZXKitCode/core.git", :tag => s.version}
+s.source = { :git => "https://github.com/DamonHu/ZXKitCore.git", :tag => s.version}
 s.requires_arc = true
 s.ios.deployment_target = '11.0'
 s.subspec 'core' do |cs|
@@ -22,5 +22,5 @@ end
 #     cs.dependency 'ZXKitLogger/zxkit'
 # end
 s.default_subspec = "core"
-s.documentation_url = 'http://blog.hudongdong.com/swift/1079.html'
+s.documentation_url = 'https://blog.hudongdong.com/ios/1164.html'
 end

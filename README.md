@@ -1,26 +1,30 @@
 # ZXKitCore
 
-[中文文档](./README_zh.md)
+![](https://img.shields.io/badge/CocoaPods-supported-brightgreen) ![](https://img.shields.io/badge/Swift-5.0-brightgreen) ![](https://img.shields.io/badge/License-MIT-brightgreen) ![](https://img.shields.io/badge/version-iOS11.0-brightgreen)
 
-`ZXKitCore` is the supporting framework of zxkit plug-ins. It provides plug-in display, management and other functions. You can quickly develop and display zxkit plug-ins by implementing the `ZXKitPluginProtocol`. This document provides plug-in development tutorials and use tutorials, which developers can view as needed.
+[English](./README_en.md)
 
-> 天地不仁，以万物为刍狗
-> 
-> The world is not benevolent, and everything is a dog
+`ZXKitCore`是ZXKit插件的支撑框架，提供了插件显示、管理等功能，只需要实现对应的`ZXKitPluginProtocol`协议，即可快速的开发出ZXKit插件并显示使用。该文档提供了插件开发教程和使用教程，开发者可以根据需要查看。
 
-## Develop a ZXKit plugin
+> 天地不仁，以万物为刍狗 		
+>  -诛仙
 
-## 1. Import the core file
 
-Project import `ZXKitCore`, you can use cocoapods to quickly import core files
+## 开发一个ZXKit插件
+
+如果需要开发自定义插件，只需要实现`ZXKitPluginProtocol`即可。实现的方式很简单。
+
+### 1、导入核心文件
+
+项目导入`ZXKitCore`，可使用cocoapods快速导入核心文件
 
 ```
 pod 'ZXKitCore/core'
 ```
 
-## 2. Implement the protocol
+### 2、实现协议
 
-Declare an object and follow the `ZXKitPluginProtocol` protocol.
+声明一个对象，遵守`ZXKitPluginProtocol`协议即可。分别返回对应插件的唯一标识，对应的icon、插件名字、插件类型分组、启动函数
 
 ```
 class PluginDemo: NSObject {
@@ -28,7 +32,7 @@ class PluginDemo: NSObject {
 }
 
 extension PluginDemo: ZXKitPluginProtocol {
-	 //Unique identification
+	 //唯一标识
     var pluginIdentifier: String {
         return "com.zxkit.pluginDemo"
     }
@@ -38,7 +42,7 @@ extension PluginDemo: ZXKitPluginProtocol {
     }
 
     var pluginTitle: String {
-        return "title"
+        return "插件标题"
     }
 
     var pluginType: ZXKitPluginType {
@@ -46,7 +50,7 @@ extension PluginDemo: ZXKitPluginProtocol {
     }
 
     func start() {
-        print("start plugin")
+        print("点击启动该插件")
         isPluginRunning = true
     }
     
@@ -55,40 +59,39 @@ extension PluginDemo: ZXKitPluginProtocol {
     }
 
     func stop() {
-        print("plugin stop running")
+        print("插件停止运行")
         isPluginRunning = false
     }
 }
 ```
 
-### 3. Register the plug-in
+### 3、注册插件
 
-After that, you can register the plug-in, you only need to register once globally
-
+之后注册插件即可，全局只需注册一次即可
 
 ```
 ZXKit.regist(plugin: PluginDemo())
 ```
 
-### 4. Done
+### 4、完成
 
-After cocoapods is released and online, when the user opens `ZXKit`, your plug-in will appear on the debug collection page
+cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
 
-### 5. More configurations
+### 5、更多属性
 
-#### 5.1、get floate button
+#### 5.1、获取悬浮的按钮对象
 
 ```
 ZXKit.floatButton
 ```
 
-#### 5.2、reset Float Button
+#### 5.2、还原悬浮按钮的样式
 
 ```
 ZXKit.resetFloatButton()
 ```
 
-#### 5.3、Display textField
+#### 5.3、显示输入框
 
 ```
 ZXKit.showInput { (text) in
@@ -96,55 +99,55 @@ ZXKit.showInput { (text) in
 }
 ```
 
-#### 5.4、get textField
+#### 5.4、获得输入框对象
 
 ```
 ZXKit.textField
 ```
 
-### NSNotification
+### 消息通知
 
-`ZXKitCore` provides the following message notifications, you can get the frame display, hide, close, and register new plug-in timing by binding the following notifications
+`ZXKitCore`提供了以下消息通知，您可以通过绑定以下通知获取框架显示、隐藏、关闭、注册新插件的时机
 
 ```
-//new plug-in regist
+//注册新插件
 NSNotification.Name.ZXKitPluginRegist
-//show
+//显示
 NSNotification.Name.ZXKitShow
-//hide
+//隐藏
 NSNotification.Name.ZXKitHide
-//close
+//关闭
 NSNotification.Name.ZXKitClose
 ```
 
-## Install and use a zxkit plugin
+## 安装使用ZXKit插件
 
-The zxkit plug-in is easy to use. For example, install the log plugin `ZXKitLogger`.
+`ZXKit`插件使用很简单，只需要导入对应的库，在`AppDelegate`启动函数注册即可。例如安装`日志插件ZXKitLogger`。
 
-### install it
+### 首先pod安装对应插件
 
 ```
 pod 'ZXKitLogger/zxkit'
 ```
-### regist it
+### 注册插件
 
 ```
 ZXKit.regist(plugin: ZXKitLogger.shared)
 ```
 
-### open the plugin list
+### 打开插件列表
 
 ```
 ZXKit.show()
 ```
 
-### hide the plugin list
+### 隐藏插件列表
 
 ```
 ZXKit.hide()
 ```
 
-### close the plugin list
+### 关闭插件列表
 
 ```
 ZXKit.close()
@@ -152,10 +155,8 @@ ZXKit.close()
 
 ## ZXKitSwift
 
-We have released a cocoaPods library named [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift), which is a tool library that integrates multiple ZXKit-plugins。It can help you quickly use multiple debugging functions
+我们发布了一个cocoaPods库，名字叫[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)，这是一个集成了多个ZXKit插件的工具库。可以帮助你快速使用多个调试功能。
 
 ## License
 
-![](https://camo.githubusercontent.com/eb9066a6d8e0950066f3757c420e3a607c0929583b48ebda6fd9a6f50ccfc8f1/68747470733a2f2f7777772e6170616368652e6f72672f696d672f41534632307468416e6e69766572736172792e6a7067)
-
-Base on Apache-2.0 License
+ZXKitCore 基于 MIT license 发布。
