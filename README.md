@@ -4,7 +4,9 @@
 
 [English](./README_en.md)
 
-`ZXKitCore`是ZXKit插件的支撑框架，提供了插件显示、管理等功能，只需要实现对应的`ZXKitPluginProtocol`协议，即可快速的开发出ZXKit插件并显示使用。该文档提供了插件开发教程和使用教程，开发者可以根据需要查看。
+如果您需要的是一键接入常用的调试功能，请使用 [DamonHu/ZXKitSwift](https://github.com/DamonHu/ZXKitSwift)。
+
+`ZXKitCore`是`ZXKit`插件的支撑框架，面向的对象是`ZXKit`插件的开发。该框架提供了插件显示、管理等功能，只需要实现对应的`ZXKitPluginProtocol`协议，即可快速的开发出ZXKit插件并显示使用。该文档提供了插件开发教程和使用教程，开发者可以根据需要查看。
 
 > 天地不仁，以万物为刍狗 		
 >  -诛仙

@@ -4,7 +4,9 @@
 
 [中文文档](./README.md)
 
-`ZXKitCore` is the supporting framework of zxkit plug-ins. It provides plug-in display, management and other functions. You can quickly develop and display zxkit plug-ins by implementing the `ZXKitPluginProtocol`. This document provides plug-in development tutorials and use tutorials, which developers can view as needed.
+If you need the common debugging function of one click access, please use [DamonHu/ZXKitSwift](https://github.com/DamonHu/ZXKitSwift)
+
+`ZXKitCore` is the supporting framework of `zxkit` plug-ins, the object-oriented is the development of `ZXKit` plug-in. It provides plug-in display, management and other functions. You can quickly develop and display zxkit plug-ins by implementing the `ZXKitPluginProtocol`. This document provides plug-in development tutorials and use tutorials, which developers can view as needed.
 
 > 天地不仁，以万物为刍狗
 > 
