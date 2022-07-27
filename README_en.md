@@ -156,7 +156,7 @@ ZXKit.close()
 
 ## ZXKitSwift
 
-We have released a cocoaPods library named [ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift), which is a tool library that integrates multiple ZXKit-plugins。It can help you quickly use multiple debugging functions
+We have released a cocoaPods library named [ZXKitSwift](https://github.com/DamonHu/ZXKitSwift), which is a tool library that integrates multiple ZXKit-plugins。It can help you quickly use multiple debugging functions
 
 ## License
 

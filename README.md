@@ -157,7 +157,7 @@ ZXKit.close()
 
 ## ZXKitSwift
 
-我们发布了一个cocoaPods库，名字叫[ZXKitSwift](https://github.com/ZXKitCode/ZXKitSwift)，这是一个集成了多个ZXKit插件的工具库。可以帮助你快速使用多个调试功能。
+我们发布了一个cocoaPods库，名字叫[ZXKitSwift](https://github.com/DamonHu/ZXKitSwift)，这是一个集成了多个ZXKit插件的工具库。可以帮助你快速使用多个调试功能。
 
 ## License
 
