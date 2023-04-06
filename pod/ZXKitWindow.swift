@@ -170,21 +170,12 @@ private extension ZXKitWindow {
         }
         rootViewController.navigationItem.titleView = view
         //navigationBar
-        let leftBarItem = UIBarButtonItem(title: "close".ZXLocaleString, style: .plain, target: self, action: #selector(_leftBarItemClick))
-        rootViewController.navigationItem.leftBarButtonItem = leftBarItem
         let rightBarItem = UIBarButtonItem(title: "hide".ZXLocaleString, style: .plain, target: self, action: #selector(_rightBarItemClick))
         rootViewController.navigationItem.rightBarButtonItem = rightBarItem
         //
         self.rootViewController = navigation
         self.windowLevel =  UIWindow.Level.alert
         self.isUserInteractionEnabled = true
-    }
-
-    @objc func _leftBarItemClick() {
-        if !self.mInputBGView.isHidden {
-            self.hideInput()
-        }
-        ZXKit.close()
     }
 
     @objc func _rightBarItemClick() {

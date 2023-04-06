@@ -17,10 +17,6 @@ s.subspec 'core' do |cs|
     cs.dependency 'SnapKit'
     cs.dependency 'ZXKitUtil'
 end
-# s.subspec 'common' do |cs|
-#     cs.dependency 'ZXKitCore/core'
-#     cs.dependency 'ZXKitLogger/zxkit'
-# end
 s.default_subspec = "core"
 s.documentation_url = 'https://blog.hudongdong.com/ios/1164.html'
 end

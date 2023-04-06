@@ -18,7 +18,7 @@ class ZXKitFloatWindow: UIWindow {
     let items: [(icon: String, color: UIColor)] = [
         ("icon_home", UIColor(red: 0.19, green: 0.57, blue: 1, alpha: 1)),
         ("icon_search", UIColor(red: 0.22, green: 0.74, blue: 0, alpha: 1)),
-        ("notifications-btn", UIColor(red: 0.96, green: 0.23, blue: 0.21, alpha: 1)),
+        ("icon_close_white", UIColor(red: 0.96, green: 0.23, blue: 0.21, alpha: 1)),
         ("settings-btn", UIColor(red: 0.51, green: 0.15, blue: 1, alpha: 1)),
         ("nearby-btn", UIColor(red: 1, green: 0.39, blue: 0, alpha: 1))
     ]
@@ -75,7 +75,7 @@ class ZXKitFloatWindow: UIWindow {
             normalIcon:"zx_logo_a",
             selectedIcon:"zx_logo_a",
             buttonsCount: 4,
-            duration: 2,
+            duration: 1.5,
             distance: 120)
         button.delegate = self
         button.zx.addLayerShadow(color: UIColor.zx.color(hexValue: 0x333333), offset: CGSize(width: 2, height: 2), radius: 4, cornerRadius: 30)
@@ -84,8 +84,6 @@ class ZXKitFloatWindow: UIWindow {
         button.addGestureRecognizer(pan)
         return button
     }()
-
-
 }
 
 extension ZXKitFloatWindow {
@@ -97,10 +95,6 @@ private extension ZXKitFloatWindow {
         self.rootViewController = UIViewController()
         self.windowLevel =  UIWindow.Level.alert
         self.isUserInteractionEnabled = true
-    }
-
-    @objc func _show() {
-        ZXKit.show()
     }
 
     func _createUI() {
@@ -124,7 +118,6 @@ private extension ZXKitFloatWindow {
             p.setTranslation(CGPoint.zero, in: self)
         }
         //弹回边界
-        print(panPoint.x, panPoint.y, self.center.x, self.center.y)
         if p.state == .ended || p.state == .cancelled {
             self._resetPosition()
             p.setTranslation(CGPoint.zero, in: self)
@@ -168,12 +161,13 @@ extension ZXKitFloatWindow: CircleMenuDelegate {
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
 
-    func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
-        print("button will selected: \(atIndex)")
-    }
-
     func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
+        if atIndex == 0 {
+            ZXKit.show()
+        } else if atIndex == 2 {
+            ZXKit.close()
+        }
     }
 
     func menuCollapsed(_ circleMenu: CircleMenu) {
