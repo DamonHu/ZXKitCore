@@ -35,7 +35,8 @@ class ViewController: UIViewController {
 
     @objc func _click() {
         ZXKit.show()
-        ZXKit.showInput { (text) in
+        
+        ZXKit.showInput(placeholder: "输入文字", text: nil) { text in
             print(text)
         }
     }

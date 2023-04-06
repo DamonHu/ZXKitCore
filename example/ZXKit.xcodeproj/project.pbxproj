@@ -23,6 +23,9 @@
 		E4AC94EF2632C9FF001FC322 /* PluginDemo3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94EE2632C9FF001FC322 /* PluginDemo3.swift */; };
 		E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */; };
 		E4AC94FE26355664001FC322 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4AC950026355664001FC322 /* Localizable.strings */; };
+		E4BB52C329DE9DC400DAACAA /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52BF29DE9DC400DAACAA /* CircleMenuButton.swift */; };
+		E4BB52C429DE9DC400DAACAA /* CircleMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */; };
+		E4BB52C529DE9DC400DAACAA /* CircleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */; };
 		E4FB22A9288C479400CAFDD6 /* ZXKitUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		E4AC94F226354CE9001FC322 /* ZXKitFloatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXKitFloatWindow.swift; sourceTree = "<group>"; };
 		E4AC94FF26355664001FC322 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E4AC950226355680001FC322 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E4BB52BF29DE9DC400DAACAA /* CircleMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
+		E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuLoader.swift; sourceTree = "<group>"; };
+		E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenu.swift; sourceTree = "<group>"; };
 		E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUIConfig.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +115,7 @@
 		E4AC94D32632AC61001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4BB52AD29DE9D5600DAACAA /* menu */,
 				E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */,
 				E4AC94F92635561F001FC322 /* localizable */,
 				E4AC94D42632AC8B001FC322 /* ZXKit.swift */,
@@ -128,6 +135,32 @@
 				E4AC950026355664001FC322 /* Localizable.strings */,
 			);
 			path = localizable;
+			sourceTree = "<group>";
+		};
+		E4BB52AD29DE9D5600DAACAA /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */,
+				E4BB52BE29DE9DC400DAACAA /* CircleMenuButton */,
+				E4BB52C029DE9DC400DAACAA /* CircleMenuLoader */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		E4BB52BE29DE9DC400DAACAA /* CircleMenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				E4BB52BF29DE9DC400DAACAA /* CircleMenuButton.swift */,
+			);
+			path = CircleMenuButton;
+			sourceTree = "<group>";
+		};
+		E4BB52C029DE9DC400DAACAA /* CircleMenuLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */,
+			);
+			path = CircleMenuLoader;
 			sourceTree = "<group>";
 		};
 		F4427EA4A38B0875A04936AC /* Pods */ = {
@@ -255,13 +288,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BB52C329DE9DC400DAACAA /* CircleMenuButton.swift in Sources */,
 				E4AC94E02632B881001FC322 /* ZXKitPluginCollectionViewCell.swift in Sources */,
 				E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */,
 				E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */,
 				E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */,
+				E4BB52C429DE9DC400DAACAA /* CircleMenuLoader.swift in Sources */,
 				E4AC94C126327E78001FC322 /* ViewController.swift in Sources */,
 				E4AC94D92632AD4D001FC322 /* ZXKitPluginProtocol.swift in Sources */,
 				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,
+				E4BB52C529DE9DC400DAACAA /* CircleMenu.swift in Sources */,
 				E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */,
 				E4FB22A9288C479400CAFDD6 /* ZXKitUIConfig.swift in Sources */,
 				E4AC94BD26327E78001FC322 /* AppDelegate.swift in Sources */,
