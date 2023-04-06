@@ -17,3 +17,14 @@ public struct ZXKitUIConfig {
     var textFieldBackgroundColor = UIColor.zx.color(hexValue: 0xffffff, alpha: 0.8)
     var inputButtonBackgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
 }
+
+public struct ZXKitButtonConfig: Equatable {
+    var title: String?
+    var titleColor: UIColor = UIColor.zx.color(hexValue: 0xffffff)
+    var titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
+    var backgroundColor: UIColor?
+
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.title == rhs.title && lhs.titleColor == rhs.titleColor && lhs.titleFont == rhs.titleFont && lhs.backgroundColor == rhs.backgroundColor
+    }
+}

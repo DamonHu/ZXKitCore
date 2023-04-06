@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZXKitUtil
 
 extension String{
     var ZXLocaleString: String {
@@ -30,7 +31,7 @@ public class ZXKit: NSObject {
     private static var floatWindow: ZXKitFloatWindow?
     private static var floatChangeTimer: Timer?     //悬浮按钮的修改
     private static var isFloatChange = false          //悬浮按钮是否在修改
-    private static var changeQueue = [(String, UIColor, UIFont, UIColor)]() //悬浮按钮修改的队列
+    private static var changeQueue = [ZXKitButtonConfig]() //悬浮按钮修改的队列
     static var pluginList = [[ZXKitPluginProtocol](), [ZXKitPluginProtocol](), [ZXKitPluginProtocol]()]
 }
 
@@ -114,32 +115,28 @@ public extension ZXKit {
         }
     }
     
-    static func updateFloatButton(title: String, titleColor: UIColor = UIColor.zx.color(hexValue: 0xffffff), titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .bold), backgroundColor: UIColor = UIColor.zx.color(hexValue: 0x5dae8b) ) {
-        if let last = self.changeQueue.last, last.0 == title, last.1.cgColor == titleColor.cgColor, last.2 == titleFont, last.3.cgColor == backgroundColor.cgColor {
+    static func updateFloatButton(config: ZXKitButtonConfig) {
+        if let last = self.changeQueue.last, last == config {
             //如果和最后一次重复就不再添加
             return
         }
-        self.changeQueue.append((title, titleColor, titleFont, backgroundColor))
+        self.changeQueue.append(config)
         if self.isFloatChange {
             return
         }
-        if let button = self.floatWindow?.mButton {
+        if let floatWindow = self.floatWindow {
             self.floatChangeTimer?.invalidate()
             self.floatChangeTimer = Timer(timeInterval: 2, repeats: true, block: { _ in
                 DispatchQueue.main.async {
                     if self.changeQueue.isEmpty {
                         //队列已循环完毕
-                        self.floatWindow?.resetFloatButton()
+                        floatWindow.menuStatus = .collapsed
                         self.isFloatChange = false
                         self.floatChangeTimer?.invalidate()
                         self.floatChangeTimer = nil
                     } else {
                         self.isFloatChange = true
-                        let config = self.changeQueue.first!
-                        button.setTitle(config.0, for: .normal)
-                        button.setTitleColor(config.1, for: .normal)
-                        button.titleLabel?.font = config.2
-                        button.backgroundColor = config.3
+                        floatWindow.menuStatus = .info(config: self.changeQueue.first!)
                         self.changeQueue.removeFirst()
                     }
                 }
