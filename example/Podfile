@@ -8,4 +8,6 @@ target 'ZXKit' do
   # Pods for ZXKit
   pod 'SnapKit'
   pod 'ZXKitUtil'
+  pod 'SSZipArchive'
+  pod 'ZXKitLogger', '~> 4.0.0'
 end

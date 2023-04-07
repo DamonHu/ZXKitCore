@@ -33,6 +33,8 @@
 		E4BB52D329DFBF6800DAACAA /* icon_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CC29DFBF6800DAACAA /* icon_setting@3x.png */; };
 		E4BB52D429DFBF6800DAACAA /* icon_notice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */; };
 		E4BB52D529DFBF6800DAACAA /* icon_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */; };
+		E4DB880E29E01BD800E5C800 /* logger_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DB880D29E01BD800E5C800 /* logger_logo@3x.png */; };
+		E4DB881129E01C2700E5C800 /* ZXLogger+zxkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */; };
 		E4FB22A9288C479400CAFDD6 /* ZXKitUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		E4BB52CC29DFBF6800DAACAA /* icon_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_setting@3x.png"; sourceTree = "<group>"; };
 		E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notice@3x.png"; sourceTree = "<group>"; };
 		E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@3x.png"; sourceTree = "<group>"; };
+		E4DB880D29E01BD800E5C800 /* logger_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logger_logo@3x.png"; sourceTree = "<group>"; };
+		E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXLogger+zxkit.swift"; sourceTree = "<group>"; };
 		E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUIConfig.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,7 @@
 		E4AC94D32632AC61001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4DB880F29E01BEF00E5C800 /* extend */,
 				E4BB52C629DFBF4300DAACAA /* assets */,
 				E4BB52AD29DE9D5600DAACAA /* menu */,
 				E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */,
@@ -189,6 +194,7 @@
 		E4BB52C729DFBF5B00DAACAA /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				E4DB880D29E01BD800E5C800 /* logger_logo@3x.png */,
 				E4BB52C829DFBF6800DAACAA /* icon_close@3x.png */,
 				E4BB52CA29DFBF6800DAACAA /* icon_home@3x.png */,
 				E4BB52CB29DFBF6800DAACAA /* icon_list@3x.png */,
@@ -198,6 +204,14 @@
 				E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */,
 			);
 			path = icon;
+			sourceTree = "<group>";
+		};
+		E4DB880F29E01BEF00E5C800 /* extend */ = {
+			isa = PBXGroup;
+			children = (
+				E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */,
+			);
+			path = extend;
 			sourceTree = "<group>";
 		};
 		F4427EA4A38B0875A04936AC /* Pods */ = {
@@ -273,6 +287,7 @@
 				E4BB52D329DFBF6800DAACAA /* icon_setting@3x.png in Resources */,
 				E4BB52D429DFBF6800DAACAA /* icon_notice@3x.png in Resources */,
 				E4AC94C926327E7B001FC322 /* LaunchScreen.storyboard in Resources */,
+				E4DB880E29E01BD800E5C800 /* logger_logo@3x.png in Resources */,
 				E4BB52D229DFBF6800DAACAA /* icon_list@3x.png in Resources */,
 				E4AC94FE26355664001FC322 /* Localizable.strings in Resources */,
 				E4BB52D029DFBF6800DAACAA /* icon_search@3x.png in Resources */,
@@ -338,6 +353,7 @@
 				E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */,
 				E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */,
 				E4BB52C429DE9DC400DAACAA /* CircleMenuLoader.swift in Sources */,
+				E4DB881129E01C2700E5C800 /* ZXLogger+zxkit.swift in Sources */,
 				E4AC94C126327E78001FC322 /* ViewController.swift in Sources */,
 				E4AC94D92632AD4D001FC322 /* ZXKitPluginProtocol.swift in Sources */,
 				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,

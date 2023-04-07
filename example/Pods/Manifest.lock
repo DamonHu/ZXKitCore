@@ -1,22 +1,33 @@
 PODS:
   - SnapKit (5.6.0)
+  - SSZipArchive (2.4.3)
+  - ZXKitLogger (4.0.1):
+    - ZXKitLogger/core (= 4.0.1)
+  - ZXKitLogger/core (4.0.1):
+    - ZXKitUtil (~> 4.0.0)
   - ZXKitUtil (4.0.0):
     - ZXKitUtil/core (= 4.0.0)
   - ZXKitUtil/core (4.0.0)
 
 DEPENDENCIES:
   - SnapKit
+  - SSZipArchive
+  - ZXKitLogger (~> 4.0.0)
   - ZXKitUtil
 
 SPEC REPOS:
   trunk:
     - SnapKit
+    - SSZipArchive
+    - ZXKitLogger
     - ZXKitUtil
 
 SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  ZXKitLogger: a29de63acfd805361f9e85089b856c3e6cbd6a33
   ZXKitUtil: 0d23a979cdc7a7f9df0722148a613986ef007288
 
-PODFILE CHECKSUM: 01b71784b391a1cc76dc321ccfe37db67d6882cc
+PODFILE CHECKSUM: e7e3cfdd1aaca592d55b1f3b0ef55974c478c5d7
 
 COCOAPODS: 1.11.2

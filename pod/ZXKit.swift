@@ -7,6 +7,7 @@
 
 import UIKit
 import ZXKitUtil
+import ZXKitLogger
 
 extension String{
     var ZXLocaleString: String {
@@ -33,7 +34,7 @@ public extension NSNotification.Name {
 
 public class ZXKit: NSObject {
     public static var UIConfig = ZXKitUIConfig()
-    
+    public static let DebugFolderPath = ZXKitUtil.shared.createFileDirectory(in: .caches, directoryName: "zxkit")
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
     private static var floatChangeTimer: Timer?     //悬浮按钮的修改
@@ -67,6 +68,7 @@ public extension ZXKit {
     }
 
     static func show() {
+        self.regist(plugin: ZXKitLogger.shared)
         NotificationCenter.default.post(name: .ZXKitShow, object: nil)
         DispatchQueue.main.async {
             self.floatWindow?.isHidden = true
