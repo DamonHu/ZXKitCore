@@ -17,6 +17,13 @@ extension String{
     }
 }
 
+func UIImageHDBoundle(named: String?) -> UIImage? {
+    guard let name = named else { return nil }
+    guard let bundlePath = Bundle(for: ZXKit.self).path(forResource: "ZXKitCore", ofType: "bundle") else { return UIImage(named: name) }
+    guard let bundle = Bundle(path: bundlePath) else { return UIImage(named: name) }
+    return UIImage(named: name, in: bundle, compatibleWith: nil)
+}
+
 public extension NSNotification.Name {
     static let ZXKitPluginRegist = NSNotification.Name("ZXKitPluginRegist")
     static let ZXKitShow = NSNotification.Name("ZXKitShow")

@@ -17,9 +17,9 @@ enum ZXFloatMenuStatus {
 class ZXKitFloatWindow: UIWindow {
     let items: [(icon: String, color: UIColor)] = [
         ("icon_home", UIColor(red: 0.19, green: 0.57, blue: 1, alpha: 1)),
-        ("icon_search", UIColor(red: 0.22, green: 0.74, blue: 0, alpha: 1)),
-        ("icon_close_white", UIColor(red: 0.96, green: 0.23, blue: 0.21, alpha: 1)),
-        ("settings-btn", UIColor(red: 0.51, green: 0.15, blue: 1, alpha: 1)),
+        ("icon_share", UIColor(red: 0.22, green: 0.74, blue: 0, alpha: 1)),
+        ("icon_close", UIColor(red: 0.96, green: 0.23, blue: 0.21, alpha: 1)),
+        ("icon_notice", UIColor(red: 0.51, green: 0.15, blue: 1, alpha: 1)),
         ("nearby-btn", UIColor(red: 1, green: 0.39, blue: 0, alpha: 1))
     ]
 
@@ -27,13 +27,13 @@ class ZXKitFloatWindow: UIWindow {
         didSet {
             switch menuStatus {
                 case .collapsed:
-                    mButton.setImage(UIImage(named: "zx_logo_a"), for: .normal)
+                    mButton.setImage(UIImageHDBoundle(named: "zx_logo_a"), for: .normal)
                     mButton.setTitle(nil, for: UIControl.State.normal)
                     mButton.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
                     self.bounds.size.width = 60
                     self.bounds.size.height = 60
                 case .open:
-                    mButton.setImage(UIImage(named: "zx_logo_a"), for: .normal)
+                    mButton.setImage(UIImageHDBoundle(named: "zx_logo_a"), for: .normal)
                     mButton.setTitle(nil, for: UIControl.State.normal)
                     mButton.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
                     self.bounds.size.width = 240
@@ -153,10 +153,10 @@ extension ZXKitFloatWindow: CircleMenuDelegate {
     func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         button.backgroundColor = items[atIndex].color
 
-        button.setImage(UIImage(named: items[atIndex].icon), for: .normal)
+        button.setImage(UIImageHDBoundle(named: items[atIndex].icon), for: .normal)
 
         // set highlited image
-        let highlightedImage = UIImage(named: items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
+        let highlightedImage = UIImageHDBoundle(named: items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
         button.setImage(highlightedImage, for: .highlighted)
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }

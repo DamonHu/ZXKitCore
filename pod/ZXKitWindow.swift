@@ -163,7 +163,7 @@ private extension ZXKitWindow {
         //set title
         let view = UIView()
         let label = UILabel()
-        label.attributedText = NSAttributedString(string: "ZXKIT", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 18, weight: .medium), NSAttributedString.Key.foregroundColor:UIColor.black])
+        label.attributedText = NSAttributedString(string: "ZXKit", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 18, weight: .medium), NSAttributedString.Key.foregroundColor:UIColor.black])
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.center.equalToSuperview()

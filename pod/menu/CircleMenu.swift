@@ -114,6 +114,8 @@ open class CircleMenu: UIButton {
     open weak var delegate: AnyObject? // CircleMenuDelegate?
 
     var buttons: [UIButton]?
+    var badages: [String?] = []
+
     weak var platform: UIView?
 
     public var customNormalIconView: UIImageView?
@@ -140,17 +142,17 @@ open class CircleMenu: UIButton {
         super.init(frame: frame)
 
         if let icon = normalIcon {
-            setImage(UIImage(named: icon), for: .normal)
+            setImage(UIImageHDBoundle(named: icon), for: .normal)
         }
 
         if let icon = selectedIcon {
-            setImage(UIImage(named: icon), for: .selected)
+            setImage(UIImageHDBoundle(named: icon), for: .selected)
         }
 
         self.buttonsCount = buttonsCount
         self.duration = duration
         self.distance = distance
-
+        self.badages = [String?](repeating: nil, count: buttonsCount)
         commonInit()
     }
 
@@ -213,6 +215,14 @@ open class CircleMenu: UIButton {
         super.removeFromSuperview()
     }
 
+    open func setBadge(value: String?, index: Int) {
+        guard index < self.badages.count else { return }
+        self.badages[index] = value
+        if self.buttonsIsShown(), let button = self.buttons?[index] as? CircleMenuButton {
+            button.setBadge(text: value)
+        }
+    }
+
     // MARK: create
 
     fileprivate func createButtons(platform: UIView) -> [UIButton] {
@@ -233,6 +243,7 @@ open class CircleMenu: UIButton {
                 $0.tag = index
                 $0.addTarget(self, action: #selector(CircleMenu.buttonHandler(_:)), for: UIControl.Event.touchUpInside)
                 $0.alpha = 0
+                $0.setBadge(text: self.badages[index])
             }
             buttons.append(button)
         }

@@ -22,15 +22,25 @@
 // THE SOFTWARE.
 
 import UIKit
+import ZXKitUtil
 
 internal class CircleMenuButton: UIButton {
 
     // MARK: properties
-
     weak var container: UIView?
+    lazy var mBadgeLable: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.textColor = UIColor.zx.color(hexValue: 0xffffff)
+        label.font = .systemFont(ofSize: 14, weight: .bold)
+        return label
+    }()
+
+    func setBadge(text: String?) {
+        mBadgeLable.text = text
+    }
 
     // MARK: life cycle
-
     init(size: CGSize, platform: UIView, distance: Float, angle: Float = 0) {
         super.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: size))
 
@@ -45,6 +55,10 @@ internal class CircleMenuButton: UIButton {
         view.addSubview(self)
         // ...
         aContainer.addSubview(view)
+
+        mBadgeLable.frame = CGRect(x: 8, y: 5, width: bounds.width - 16, height: 20)
+        view.addSubview(mBadgeLable)
+
         container = aContainer
 
         view.layer.transform = CATransform3DMakeRotation(-CGFloat(angle.degrees), 0, 0, 1)
