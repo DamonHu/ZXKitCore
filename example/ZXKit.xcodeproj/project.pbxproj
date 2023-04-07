@@ -26,6 +26,13 @@
 		E4BB52C329DE9DC400DAACAA /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52BF29DE9DC400DAACAA /* CircleMenuButton.swift */; };
 		E4BB52C429DE9DC400DAACAA /* CircleMenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */; };
 		E4BB52C529DE9DC400DAACAA /* CircleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */; };
+		E4BB52CF29DFBF6800DAACAA /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52C829DFBF6800DAACAA /* icon_close@3x.png */; };
+		E4BB52D029DFBF6800DAACAA /* icon_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52C929DFBF6800DAACAA /* icon_search@3x.png */; };
+		E4BB52D129DFBF6800DAACAA /* icon_home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CA29DFBF6800DAACAA /* icon_home@3x.png */; };
+		E4BB52D229DFBF6800DAACAA /* icon_list@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CB29DFBF6800DAACAA /* icon_list@3x.png */; };
+		E4BB52D329DFBF6800DAACAA /* icon_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CC29DFBF6800DAACAA /* icon_setting@3x.png */; };
+		E4BB52D429DFBF6800DAACAA /* icon_notice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */; };
+		E4BB52D529DFBF6800DAACAA /* icon_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */; };
 		E4FB22A9288C479400CAFDD6 /* ZXKitUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +60,13 @@
 		E4BB52BF29DE9DC400DAACAA /* CircleMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
 		E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenuLoader.swift; sourceTree = "<group>"; };
 		E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMenu.swift; sourceTree = "<group>"; };
+		E4BB52C829DFBF6800DAACAA /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
+		E4BB52C929DFBF6800DAACAA /* icon_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search@3x.png"; sourceTree = "<group>"; };
+		E4BB52CA29DFBF6800DAACAA /* icon_home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home@3x.png"; sourceTree = "<group>"; };
+		E4BB52CB29DFBF6800DAACAA /* icon_list@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_list@3x.png"; sourceTree = "<group>"; };
+		E4BB52CC29DFBF6800DAACAA /* icon_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_setting@3x.png"; sourceTree = "<group>"; };
+		E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notice@3x.png"; sourceTree = "<group>"; };
+		E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@3x.png"; sourceTree = "<group>"; };
 		E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUIConfig.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,9 +129,9 @@
 		E4AC94D32632AC61001FC322 /* pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4BB52C629DFBF4300DAACAA /* assets */,
 				E4BB52AD29DE9D5600DAACAA /* menu */,
 				E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */,
-				E4AC94F92635561F001FC322 /* localizable */,
 				E4AC94D42632AC8B001FC322 /* ZXKit.swift */,
 				E4AC94D82632AD4D001FC322 /* ZXKitPluginProtocol.swift */,
 				E4AC94DC2632B10F001FC322 /* ZXKitWindow.swift */,
@@ -161,6 +175,29 @@
 				E4BB52C129DE9DC400DAACAA /* CircleMenuLoader.swift */,
 			);
 			path = CircleMenuLoader;
+			sourceTree = "<group>";
+		};
+		E4BB52C629DFBF4300DAACAA /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				E4BB52C729DFBF5B00DAACAA /* icon */,
+				E4AC94F92635561F001FC322 /* localizable */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		E4BB52C729DFBF5B00DAACAA /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				E4BB52C829DFBF6800DAACAA /* icon_close@3x.png */,
+				E4BB52CA29DFBF6800DAACAA /* icon_home@3x.png */,
+				E4BB52CB29DFBF6800DAACAA /* icon_list@3x.png */,
+				E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */,
+				E4BB52C929DFBF6800DAACAA /* icon_search@3x.png */,
+				E4BB52CC29DFBF6800DAACAA /* icon_setting@3x.png */,
+				E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 		F4427EA4A38B0875A04936AC /* Pods */ = {
@@ -232,9 +269,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BB52D129DFBF6800DAACAA /* icon_home@3x.png in Resources */,
+				E4BB52D329DFBF6800DAACAA /* icon_setting@3x.png in Resources */,
+				E4BB52D429DFBF6800DAACAA /* icon_notice@3x.png in Resources */,
 				E4AC94C926327E7B001FC322 /* LaunchScreen.storyboard in Resources */,
+				E4BB52D229DFBF6800DAACAA /* icon_list@3x.png in Resources */,
 				E4AC94FE26355664001FC322 /* Localizable.strings in Resources */,
+				E4BB52D029DFBF6800DAACAA /* icon_search@3x.png in Resources */,
 				E4AC94C626327E7B001FC322 /* Assets.xcassets in Resources */,
+				E4BB52CF29DFBF6800DAACAA /* icon_close@3x.png in Resources */,
+				E4BB52D529DFBF6800DAACAA /* icon_share@3x.png in Resources */,
 				E4AC94C426327E78001FC322 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
