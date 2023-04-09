@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZXKitLogger
 
 class ViewController: UIViewController {
 
@@ -23,6 +24,10 @@ class ViewController: UIViewController {
         ZXKit.regist(plugin: PluginDemo3())
 
         self.createUI()
+        
+        printError("error")
+        printError("error")
+        printError("error")
     }
 
     func createUI() {

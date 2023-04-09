@@ -35,6 +35,7 @@ public extension NSNotification.Name {
 public class ZXKit: NSObject {
     public static var UIConfig = ZXKitUIConfig()
     public static let DebugFolderPath = ZXKitUtil.shared.createFileDirectory(in: .caches, directoryName: "zxkit")
+    private static var hasConfig = false
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
     private static var floatChangeTimer: Timer?     //悬浮按钮的修改
@@ -45,6 +46,9 @@ public class ZXKit: NSObject {
 
 public extension ZXKit {
     static func regist(plugin: ZXKitPluginProtocol) {
+        if !hasConfig {
+            self._initConfig()
+        }
         var index = 0
         switch plugin.pluginType {
             case .ui:
@@ -68,7 +72,9 @@ public extension ZXKit {
     }
 
     static func show() {
-        self.regist(plugin: ZXKitLogger.shared)
+        if !hasConfig {
+            self._initConfig()
+        }
         NotificationCenter.default.post(name: .ZXKitShow, object: nil)
         DispatchQueue.main.async {
             self.floatWindow?.isHidden = true
@@ -113,6 +119,7 @@ public extension ZXKit {
                 }
                 self.floatWindow?.isHidden = false
             }
+            self.floatWindow?.setBadge(value: "\(ZXKitLogger.getItemCount(type: .error))", index: 3)
         }
     }
 
@@ -158,5 +165,25 @@ public extension ZXKit {
     static func showInput(placeholder: String?, text: String?, complete: ((String)->Void)?) {
         ZXKit.show()
         self.window?.showInput(placeholder: placeholder, text: text, complete: complete)
+    }
+}
+
+private extension ZXKit {
+    static func _initConfig() {
+        if hasConfig {
+            return
+        }
+        self.hasConfig = true
+        self.regist(plugin: ZXKitLogger.shared)
+        NotificationCenter.default.addObserver(self, selector: #selector(_logUpdate(notification: )), name: .ZXKitLogDBUpdate, object: nil)
+    }
+    
+    @objc static func _logUpdate(notification: Notification) {
+        print(notification.object)
+        if let object = notification.object as? [String: Any] {
+            if let floatWindow = self.floatWindow {
+                floatWindow.setBadge(value: "\(ZXKitLogger.getItemCount(type: .error))", index: 3)
+            }
+        }
     }
 }

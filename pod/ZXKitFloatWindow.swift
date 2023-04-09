@@ -7,6 +7,7 @@
 
 import UIKit
 import ZXKitUtil
+import ZXKitLogger
 
 enum ZXFloatMenuStatus {
     case collapsed
@@ -87,7 +88,9 @@ class ZXKitFloatWindow: UIWindow {
 }
 
 extension ZXKitFloatWindow {
-
+    func setBadge(value: String?, index: Int) {
+        self.mButton.setBadge(value: value, index: index)
+    }
 }
 
 private extension ZXKitFloatWindow {
@@ -167,6 +170,8 @@ extension ZXKitFloatWindow: CircleMenuDelegate {
             ZXKit.show()
         } else if atIndex == 2 {
             ZXKit.close()
+        } else if atIndex == 3 {
+            ZXKitLogger.show(filterType: .error)
         }
     }
 
