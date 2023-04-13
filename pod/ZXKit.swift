@@ -32,9 +32,16 @@ public extension NSNotification.Name {
     static let ZXKitClose = NSNotification.Name("ZXKitClose")
 }
 
+public enum DisplayMode {
+    case none
+    case input(placeholder: String?, text: String?, endEdit: ((String)->Void)?)
+}
+
 public class ZXKit: NSObject {
     public static var UIConfig = ZXKitUIConfig()
     public static let DebugFolderPath = ZXKitUtil.shared.createFileDirectory(in: .caches, directoryName: "zxkit")
+
+    //MARK: Private
     private static var hasConfig = false
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
@@ -71,7 +78,7 @@ public extension ZXKit {
         NotificationCenter.default.post(name: .ZXKitPluginRegist, object: self.pluginList)
     }
 
-    static func show() {
+    static func show(_ mode: DisplayMode = .none) {
         if !hasConfig {
             self._initConfig()
         }
@@ -94,6 +101,13 @@ public extension ZXKit {
                 }
                 self.window?.isHidden = false
                 self.window?.reloadData()
+            }
+            //显示mode
+            switch mode {
+                case .none:
+                    break
+                case .input(let placeholder, let text, let endEdit):
+                    self.window?.showInput(placeholder: placeholder, text: text, complete: endEdit)
             }
         }
     }
@@ -119,7 +133,12 @@ public extension ZXKit {
                 }
                 self.floatWindow?.isHidden = false
             }
-            self.floatWindow?.setBadge(value: "\(ZXKitLogger.getItemCount(type: .error))", index: 3)
+            let count = ZXKitLogger.getItemCount(type: .error)
+            if count == 0 {
+                self.floatWindow?.setBadge(value: nil, index: 3)
+            } else {
+                self.floatWindow?.setBadge(value: "\(count)", index: 3)
+            }
         }
     }
 
@@ -131,7 +150,7 @@ public extension ZXKit {
         }
     }
     
-    static func updateFloatButton(config: ZXKitButtonConfig) {
+    static func updateFloatButton(config: ZXKitButtonConfig, plugin: ZXKitPluginProtocol) {
         if let last = self.changeQueue.last, last == config {
             //如果和最后一次重复就不再添加
             return
@@ -142,29 +161,23 @@ public extension ZXKit {
         }
         if let floatWindow = self.floatWindow {
             self.floatChangeTimer?.invalidate()
-            self.floatChangeTimer = Timer(timeInterval: 2, repeats: true, block: { _ in
+            self.floatChangeTimer = Timer(timeInterval: 2, repeats: true, block: { timer in
                 DispatchQueue.main.async {
                     if self.changeQueue.isEmpty {
                         //队列已循环完毕
-                        floatWindow.menuStatus = .collapsed
+                        floatWindow.menuButtonType = .default
                         self.isFloatChange = false
                         self.floatChangeTimer?.invalidate()
                         self.floatChangeTimer = nil
                     } else {
                         self.isFloatChange = true
-                        floatWindow.menuStatus = .info(config: self.changeQueue.first!)
+                        floatWindow.menuButtonType = .info(config: self.changeQueue.first!, image: plugin.pluginIcon)
                         self.changeQueue.removeFirst()
                     }
                 }
             })
             RunLoop.main.add(self.floatChangeTimer!, forMode: .common)
-            self.floatChangeTimer?.fire()
         }
-    }
-
-    static func showInput(placeholder: String?, text: String?, complete: ((String)->Void)?) {
-        ZXKit.show()
-        self.window?.showInput(placeholder: placeholder, text: text, complete: complete)
     }
 }
 
@@ -179,10 +192,14 @@ private extension ZXKit {
     }
     
     @objc static func _logUpdate(notification: Notification) {
-        print(notification.object)
-        if let object = notification.object as? [String: Any] {
+        DispatchQueue.main.async {
             if let floatWindow = self.floatWindow {
-                floatWindow.setBadge(value: "\(ZXKitLogger.getItemCount(type: .error))", index: 3)
+                let count = ZXKitLogger.getItemCount(type: .error)
+                if count == 0 {
+                    floatWindow.setBadge(value: nil, index: 3)
+                } else {
+                    floatWindow.setBadge(value: "\(count)", index: 3)
+                }
             }
         }
     }
