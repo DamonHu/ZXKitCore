@@ -10,7 +10,7 @@ import ZXKitUtil
 
 public struct ZXKitUIConfig {
     var floatButtonColor = UIColor.zx.color(hexValue: 0x5dae8b)     //悬浮窗按钮颜色
-    var collectionViewBackgroundColor = UIColor.zx.color(hexValue: 0xfcecdd, alpha: 0.93)
+    var collectionViewBackgroundColor = UIColor.zx.color(hexValue: 0xffffff, alpha: 0.7)
     var collectionViewTitleColor = UIColor.zx.color(hexValue: 0xffffff)
     var collectionViewTitleBackgroundColor = UIColor.zx.color(hexValue: 0x5dae8b)
     var inputBackgroundColor = UIColor.zx.color(hexValue: 0x000000, alpha: 0.7)
@@ -23,6 +23,13 @@ public struct ZXKitButtonConfig: Equatable {
     var titleColor: UIColor = UIColor.zx.color(hexValue: 0xffffff)
     var titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
     var backgroundColor: UIColor?
+
+    init(title: String?, titleColor: UIColor = UIColor.zx.color(hexValue: 0xffffff), titleFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .bold), backgroundColor: UIColor? = nil) {
+        self.title = title
+        self.titleColor = titleColor
+        self.titleFont = titleFont
+        self.backgroundColor = backgroundColor
+    }
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.title == rhs.title && lhs.titleColor == rhs.titleColor && lhs.titleFont == rhs.titleFont && lhs.backgroundColor == rhs.backgroundColor
