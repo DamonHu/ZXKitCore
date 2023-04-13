@@ -8,11 +8,16 @@
 import UIKit
 import ZXKitUtil
 import ZXKitLogger
+import SSZipArchive
 
 enum ZXFloatMenuStatus {
     case collapsed
     case open
-    case info(config: ZXKitButtonConfig)
+}
+
+enum ZXFloatMenuButtonType {
+    case `default`
+    case info(config: ZXKitButtonConfig, image: UIImage?)
 }
 
 class ZXKitFloatWindow: UIWindow {
@@ -28,29 +33,33 @@ class ZXKitFloatWindow: UIWindow {
         didSet {
             switch menuStatus {
                 case .collapsed:
-                    mButton.setImage(UIImageHDBoundle(named: "zx_logo_a"), for: .normal)
-                    mButton.setTitle(nil, for: UIControl.State.normal)
-                    mButton.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
                     self.bounds.size.width = 60
                     self.bounds.size.height = 60
                 case .open:
-                    mButton.setImage(UIImageHDBoundle(named: "zx_logo_a"), for: .normal)
-                    mButton.setTitle(nil, for: UIControl.State.normal)
-                    mButton.titleLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
                     self.bounds.size.width = 240
                     self.bounds.size.height = 240
-                case .info(let config):
-                    mButton.setImage(nil, for: .normal)
-                    mButton.setTitle(config.title, for: .normal)
-                    mButton.setTitleColor(config.titleColor, for: .normal)
-                    mButton.titleLabel?.font = config.titleFont
-                    mButton.backgroundColor = config.backgroundColor ?? ZXKit.UIConfig.floatButtonColor
-                    self.bounds.size.width = 60
-                    self.bounds.size.height = 60
             }
             self._resetPosition()
         }
     }
+
+    var menuButtonType: ZXFloatMenuButtonType = .default {
+        didSet {
+            switch menuButtonType {
+                case .default:
+                    mButton.mMaskView.mImageView.image = nil
+                    mButton.mMaskView.mLabel.text = nil
+                    mButton.mMaskView.mMaskView.backgroundColor = .clear
+                case .info(let config, let image):
+                    mButton.mMaskView.mImageView.image = image
+                    mButton.mMaskView.mLabel.text = config.title
+                    mButton.mMaskView.mLabel.textColor = config.titleColor
+                    mButton.mMaskView.mMaskView.backgroundColor = config.backgroundColor ?? UIColor.zx.color(hexValue: 0x000000, alpha: 0.5)
+                    mButton.mMaskView.mLabel.font = config.titleFont
+            }
+        }
+    }
+
 
 
     @available(iOS 13.0, *)
@@ -70,7 +79,7 @@ class ZXKitFloatWindow: UIWindow {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private lazy var mButton: CircleMenu = {
+    lazy var mButton: CircleMenu = {
         let button = CircleMenu(
             frame: CGRect(x: 0, y: 0, width: 60, height: 60),
             normalIcon:"zx_logo_a",
@@ -79,6 +88,8 @@ class ZXKitFloatWindow: UIWindow {
             duration: 1.5,
             distance: 120)
         button.delegate = self
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = ZXKit.UIConfig.floatButtonColor
         button.zx.addLayerShadow(color: UIColor.zx.color(hexValue: 0x333333), offset: CGSize(width: 2, height: 2), radius: 4, cornerRadius: 30)
 
         let pan = UIPanGestureRecognizer(target: self, action: #selector(_touchMove(p:)))
@@ -106,10 +117,10 @@ private extension ZXKitFloatWindow {
         }
 
         rootViewController.view.addSubview(mButton)
-        mButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.height.equalTo(60)
-        }
+        mButton.centerXAnchor.constraint(equalTo: rootViewController.view.centerXAnchor).isActive = true
+        mButton.centerYAnchor.constraint(equalTo: rootViewController.view.centerYAnchor).isActive = true
+        mButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        mButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
 
     @objc func _touchMove(p:UIPanGestureRecognizer) {
@@ -164,10 +175,27 @@ extension ZXKitFloatWindow: CircleMenuDelegate {
         button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
 
-    func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
-        print("button did selected: \(atIndex)")
+    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+        if atIndex == 1 {
+            let zipPath = ZXKitUtil.shared.getFileDirectory(type: .caches).appendingPathComponent("zxkit.zip", isDirectory: false)
+            if FileManager.default.fileExists(atPath: zipPath.path) {
+                try? FileManager.default.removeItem(at: zipPath)
+            }
+            SSZipArchive.createZipFile(atPath: zipPath.path, withContentsOfDirectory: ZXKit.DebugFolderPath.path)
+            //分享
+            ShareTools.shared.share(type: .file(url: zipPath), sourceView: button) { result in
+                if result == .fail {
+                    printError("share error")
+                }
+            }
+        }
+    }
+
+    func circleMenu(_: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
         if atIndex == 0 {
             ZXKit.show()
+        } else if atIndex == 1 {
+            //已经提前处理
         } else if atIndex == 2 {
             ZXKit.close()
         } else if atIndex == 3 {
@@ -181,5 +209,14 @@ extension ZXKitFloatWindow: CircleMenuDelegate {
 
     func menuOpened(_ circleMenu: CircleMenu) {
         self.menuStatus = .open
+        //计算运行中的数量
+        let count = ZXKit.pluginList.flatMap { $0 }.filter { plugin in
+            plugin.isRunning
+        }.count
+        if count == 0 {
+            self.setBadge(value: nil, index: 0)
+        } else {
+            self.setBadge(value: "\(count)", index: 0)
+        }
     }
 }
