@@ -116,6 +116,15 @@ open class CircleMenu: UIButton {
     var buttons: [UIButton]?
     var badages: [String?] = []
 
+    lazy var mMaskView: CircleMenuMaskView = {
+        let button = CircleMenuMaskView()
+        button.isUserInteractionEnabled = false
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 30
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     weak var platform: UIView?
 
     public var customNormalIconView: UIImageView?
@@ -172,6 +181,13 @@ open class CircleMenu: UIButton {
 
         setImage(UIImage(), for: .normal)
         setImage(UIImage(), for: .selected)
+
+        //添加mask
+        self.addSubview(mMaskView)
+        mMaskView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        mMaskView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        mMaskView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mMaskView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 
     // MARK: methods
