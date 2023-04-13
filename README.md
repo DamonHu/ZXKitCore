@@ -21,7 +21,7 @@
 项目导入`ZXKitCore`，可使用cocoapods快速导入核心文件
 
 ```
-pod 'ZXKitCore/core'
+pod 'ZXKitCore'
 ```
 
 ### 2、实现协议
@@ -79,32 +79,39 @@ ZXKit.regist(plugin: PluginDemo())
 
 cocoapods发布上线之后，当用户打开`ZXKit`时，调试集合页就会出现您的插件
 
-### 5、更多属性
+## 5、自定义配置
 
-#### 5.1、获取悬浮的按钮对象
-
-```
-ZXKit.floatButton
-```
-
-#### 5.2、还原悬浮按钮的样式
+#### 5.1、可通过修改`UIConfig`修改窗口颜色等显示
 
 ```
-ZXKit.resetFloatButton()
+ZXKit.UIConfig
+```
+
+#### 5.2、调试文件夹，悬浮菜单分享时会将该文件夹打包分享
+
+```
+ZXKit.DebugFolderPath
 ```
 
 #### 5.3、显示输入框
 
 ```
-ZXKit.showInput { (text) in
-	print(text)
-}
+ZXKit.show(.input(placeholder: "placeholder", text: nil, endEdit: { text in
+      print(text)
+}))
 ```
 
-#### 5.4、获得输入框对象
+#### 5.4、更新悬浮图标
 
 ```
-ZXKit.textField
+let config = ZXKitButtonConfig(title: "test\(i)")
+ZXKit.updateFloatButton(config: config, plugin: PluginDemo())
+```
+
+#### 5.5、输出调试数据到悬浮窗
+
+```
+printError("error")
 ```
 
 ### 消息通知

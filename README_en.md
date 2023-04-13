@@ -19,7 +19,7 @@ If you need to quickly integrate multiple debugging functions, such as log viewi
 Project import `ZXKitCore`, you can use cocoapods to quickly import core files
 
 ```
-pod 'ZXKitCore/core'
+pod 'ZXKitCore'
 ```
 
 ## 2. Implement the protocol
@@ -78,32 +78,40 @@ ZXKit.regist(plugin: PluginDemo())
 
 After cocoapods is released and online, when the user opens `ZXKit`, your plug-in will appear on the debug collection page
 
-### 5. More configurations
 
-#### 5.1、get floate button
+## 5. Custom Configuration
 
-```
-ZXKit.floatButton
-```
-
-#### 5.2、reset Float Button
+#### 5.1、The window color and other display can be modified by modifying 'UIConfig'
 
 ```
-ZXKit.resetFloatButton()
+ZXKit.UIConfig
+```
+
+#### 5.2、Debug folder, which will be packaged and shared during floating menu sharing
+
+```
+ZXKit.DebugFolderPath
 ```
 
 #### 5.3、Display textField
 
 ```
-ZXKit.showInput { (text) in
-	print(text)
-}
+ZXKit.show(.input(placeholder: "placeholder", text: nil, endEdit: { text in
+      print(text)
+}))
 ```
 
-#### 5.4、get textField
+#### 5.4、Update floating icon
 
 ```
-ZXKit.textField
+let config = ZXKitButtonConfig(title: "test\(i)")
+ZXKit.updateFloatButton(config: config, plugin: PluginDemo())
+```
+
+#### 5.5、 Output debugging data to floating window
+
+```
+printError("error")
 ```
 
 ### NSNotification
