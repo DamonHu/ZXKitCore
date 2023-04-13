@@ -34,7 +34,9 @@
 		E4BB52D429DFBF6800DAACAA /* icon_notice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */; };
 		E4BB52D529DFBF6800DAACAA /* icon_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */; };
 		E4DB880E29E01BD800E5C800 /* logger_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DB880D29E01BD800E5C800 /* logger_logo@3x.png */; };
-		E4DB881129E01C2700E5C800 /* ZXLogger+zxkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */; };
+		E4DB881329E41BF700E5C800 /* ShareTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DB881229E41BF700E5C800 /* ShareTools.swift */; };
+		E4E3E9E029E7DBED00A5CE40 /* CircleMenuMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3E9DF29E7DBED00A5CE40 /* CircleMenuMaskView.swift */; };
+		E4E783A129E6B06800C67D6F /* ZXKitLogger+zxkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E783A029E6B06800C67D6F /* ZXKitLogger+zxkit.swift */; };
 		E4FB22A9288C479400CAFDD6 /* ZXKitUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +72,9 @@
 		E4BB52CD29DFBF6800DAACAA /* icon_notice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_notice@3x.png"; sourceTree = "<group>"; };
 		E4BB52CE29DFBF6800DAACAA /* icon_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@3x.png"; sourceTree = "<group>"; };
 		E4DB880D29E01BD800E5C800 /* logger_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logger_logo@3x.png"; sourceTree = "<group>"; };
-		E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXLogger+zxkit.swift"; sourceTree = "<group>"; };
+		E4DB881229E41BF700E5C800 /* ShareTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTools.swift; sourceTree = "<group>"; };
+		E4E3E9DF29E7DBED00A5CE40 /* CircleMenuMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuMaskView.swift; sourceTree = "<group>"; };
+		E4E783A029E6B06800C67D6F /* ZXKitLogger+zxkit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZXKitLogger+zxkit.swift"; sourceTree = "<group>"; };
 		E4FB22A8288C479400CAFDD6 /* ZXKitUIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXKitUIConfig.swift; sourceTree = "<group>"; };
 		F1DDAC9782431BF56C8945FC /* Pods-ZXKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZXKit.debug.xcconfig"; path = "Target Support Files/Pods-ZXKit/Pods-ZXKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +166,7 @@
 				E4BB52C229DE9DC400DAACAA /* CircleMenu.swift */,
 				E4BB52BE29DE9DC400DAACAA /* CircleMenuButton */,
 				E4BB52C029DE9DC400DAACAA /* CircleMenuLoader */,
+				E4E3E9DF29E7DBED00A5CE40 /* CircleMenuMaskView.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -209,7 +214,8 @@
 		E4DB880F29E01BEF00E5C800 /* extend */ = {
 			isa = PBXGroup;
 			children = (
-				E4DB881029E01C2700E5C800 /* ZXLogger+zxkit.swift */,
+				E4E783A029E6B06800C67D6F /* ZXKitLogger+zxkit.swift */,
+				E4DB881229E41BF700E5C800 /* ShareTools.swift */,
 			);
 			path = extend;
 			sourceTree = "<group>";
@@ -351,11 +357,13 @@
 				E4AC94E02632B881001FC322 /* ZXKitPluginCollectionViewCell.swift in Sources */,
 				E4AC94F326354CE9001FC322 /* ZXKitFloatWindow.swift in Sources */,
 				E4AC94DD2632B10F001FC322 /* ZXKitWindow.swift in Sources */,
+				E4E783A129E6B06800C67D6F /* ZXKitLogger+zxkit.swift in Sources */,
+				E4E3E9E029E7DBED00A5CE40 /* CircleMenuMaskView.swift in Sources */,
 				E4AC94D52632AC8B001FC322 /* ZXKit.swift in Sources */,
 				E4BB52C429DE9DC400DAACAA /* CircleMenuLoader.swift in Sources */,
-				E4DB881129E01C2700E5C800 /* ZXLogger+zxkit.swift in Sources */,
 				E4AC94C126327E78001FC322 /* ViewController.swift in Sources */,
 				E4AC94D92632AD4D001FC322 /* ZXKitPluginProtocol.swift in Sources */,
+				E4DB881329E41BF700E5C800 /* ShareTools.swift in Sources */,
 				E4AC94E92632C242001FC322 /* ZXKitCollectionViewHeaderView.swift in Sources */,
 				E4BB52C529DE9DC400DAACAA /* CircleMenu.swift in Sources */,
 				E4AC94EC2632C3C4001FC322 /* PluginDemo2.swift in Sources */,

@@ -32,19 +32,42 @@ class ViewController: UIViewController {
 
     func createUI() {
         self.view.backgroundColor = UIColor.white
-        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
+        button.setTitle("open debug tool", for: .normal)
         button.backgroundColor = UIColor.red
         self.view.addSubview(button)
         button.addTarget(self, action: #selector(_click), for: .touchUpInside)
+
+
+        let button2 = UIButton(frame: CGRect(x: 100, y: 200, width: 200, height: 50))
+        button2.setTitle("show input window", for: .normal)
+        button2.backgroundColor = UIColor.red
+        self.view.addSubview(button2)
+        button2.addTarget(self, action: #selector(_showInput), for: .touchUpInside)
+
+        let button3 = UIButton(frame: CGRect(x: 100, y: 300, width: 200, height: 50))
+        button3.setTitle("change float button", for: .normal)
+        button3.backgroundColor = UIColor.red
+        self.view.addSubview(button3)
+        button3.addTarget(self, action: #selector(_updateFloatButton), for: .touchUpInside)
+
     }
 
     @objc func _click() {
         ZXKit.show()
-        
-        ZXKit.showInput(placeholder: "输入文字", text: nil) { text in
-            print(text)
-        }
     }
 
+    @objc func _showInput() {
+        ZXKit.show(.input(placeholder: "placeholder", text: nil, endEdit: { text in
+            print(text)
+        }))
+    }
+
+    @objc func _updateFloatButton() {
+        for i in 0..<10 {
+            let config = ZXKitButtonConfig(title: "test\(i)", titleColor: UIColor.white, titleFont: .systemFont(ofSize: 17), backgroundColor: nil)
+            ZXKit.updateFloatButton(config: config, plugin: PluginDemo())
+        }
+    }
 }
 

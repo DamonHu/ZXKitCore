@@ -27,7 +27,7 @@ extension ZXKitLogType {
     func textColor() -> UIColor {
         switch self {
         case .debug:
-            return UIColor.zx.color(hexValue: 0xbf8bfb)
+            return UIColor.zx.color(hexValue: 0xD1B6E1)
         case .info:
             return UIColor(red: 80.0/255.0, green: 216.0/255.0, blue: 144.0/255.0, alpha: 1.0)
         case .warn:
@@ -38,6 +38,23 @@ extension ZXKitLogType {
             return UIColor(red: 66.0/255.0, green: 230.0/255.0, blue: 164.0/255.0, alpha: 1.0)
         default:
             return UIColor.black
+        }
+    }
+
+    func typeName() -> String {
+        switch self {
+            case .debug:
+                return "debug"
+            case .info:
+                return "info"
+            case .warn:
+                return "warn"
+            case .error:
+                return "error"
+            case .privacy:
+                return "privacy"
+            default:
+                return "none"
         }
     }
 }
@@ -97,7 +114,6 @@ public class ZXKitLogger {
     public static var isSyncConsole = true   //是否在xcode底部的调试栏同步输出内容
     public static var storageLevels: ZXKitLogType = [.info, .warn, .error, .privacy]    //存储到数据库的级别
     public static var logExpiryDay = 30        //本地日志文件的有效期（天），超出有效期的本地日志会被删除，0为没有有效期，默认为30天
-    public static var maxDisplayCount = 0       //屏幕最大的显示数量，适量即可，0为不限制
     public static var userID = "0"             //为不同用户创建的独立的日志库
     public static var DBParentFolder = ZXKitUtil.shared.getFileDirectory(type: .documents)
     public static var uploadComplete: ((URL) ->Void)?   //点击上传日志的回调
@@ -119,6 +135,9 @@ public class ZXKitLogger {
     public static var socketDomain: String = "local" //支持自定义
     public static var socketType: String = "_zxkitlogger"//支持自定义
     #endif
+
+    //MARK: 内部
+    static var fileSelectedComplete: ((URL, String) ->Void)?   //选择历史文件过滤回调
 
     //MARK: - Private变量
     private lazy var loggerWindow: ZXKitLoggerWindow? = {
@@ -191,14 +210,14 @@ public class ZXKitLogger {
     }
     
     ///获取log日志数组
-    public class func getAllLog(date: Date? = nil) -> [ZXKitLoggerItem] {
+    public class func getAllLog(date: Date? = nil, keyword: String? = nil, type: ZXKitLogType? = nil) -> [ZXKitLoggerItem] {
         if let date = date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateString = dateFormatter.string(from: date)
-            return HDSqliteTools.shared.getAllLog(name: dateString)
+            return HDSqliteTools.shared.getAllLog(name: dateString, keyword: keyword, type: type)
         } else {
-            return HDSqliteTools.shared.getAllLog()
+            return HDSqliteTools.shared.getAllLog(name: nil, keyword: keyword, type: type)
         }
     }
 
@@ -306,6 +325,12 @@ public class ZXKitLogger {
         self.shared.pickerWindow?.showPicker(pickType: .upload, date: date, isCloseWhenComplete: isCloseWhenComplete)
     }
 
+    ///选择的弹窗
+    public class func showFileFilter(date: Date? = nil) {
+        self.shared.pickerWindow?.isHidden = date != nil
+        self.shared.pickerWindow?.showPicker(pickType: .filter, date: date, isCloseWhenComplete: false)
+    }
+
     //MARK: init
     init() {
         if ZXKitLogger.logExpiryDay > 0 {
@@ -353,7 +378,5 @@ private extension ZXKitLogger {
                 }
             }
         }
-        //删除过期索引
-        HDSqliteTools.shared.deleteLog(timeStamp: (Date().timeIntervalSince1970 - Double(Self.logExpiryDay * 3600 * 24)))
     }
 }
