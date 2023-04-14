@@ -46,8 +46,7 @@ public class ZXKit: NSObject {
     private static var window: ZXKitWindow?
     private static var floatWindow: ZXKitFloatWindow?
     private static var floatChangeTimer: Timer?     //悬浮按钮的修改
-    private static var isFloatChange = false          //悬浮按钮是否在修改
-    private static var changeQueue = [ZXKitButtonConfig]() //悬浮按钮修改的队列
+    private static var changeQueue = [(ZXKitButtonConfig, ZXKitPluginProtocol)]() //悬浮按钮修改的队列
     static var pluginList = [[ZXKitPluginProtocol](), [ZXKitPluginProtocol](), [ZXKitPluginProtocol]()]
 }
 
@@ -147,37 +146,20 @@ public extension ZXKit {
         DispatchQueue.main.async {
             self.window?.isHidden = true
             self.floatWindow?.isHidden = true
+            self.floatWindow?.menuButtonType = .default
+            self.floatChangeTimer?.invalidate()
+            self.floatChangeTimer = nil
         }
     }
     
     static func updateFloatButton(config: ZXKitButtonConfig, plugin: ZXKitPluginProtocol) {
-        if let last = self.changeQueue.last, last == config {
+        if let last = self.changeQueue.last, last.0 == config, last.1.pluginIdentifier == plugin.pluginIdentifier {
             //如果和最后一次重复就不再添加
             return
         }
-        self.changeQueue.append(config)
-        if self.isFloatChange {
-            return
-        }
-        if let floatWindow = self.floatWindow {
-            self.floatChangeTimer?.invalidate()
-            self.floatChangeTimer = Timer(timeInterval: 2, repeats: true, block: { timer in
-                DispatchQueue.main.async {
-                    if self.changeQueue.isEmpty {
-                        //队列已循环完毕
-                        floatWindow.menuButtonType = .default
-                        self.isFloatChange = false
-                        self.floatChangeTimer?.invalidate()
-                        self.floatChangeTimer = nil
-                    } else {
-                        self.isFloatChange = true
-                        floatWindow.menuButtonType = .info(config: self.changeQueue.first!, image: plugin.pluginIcon)
-                        self.changeQueue.removeFirst()
-                    }
-                }
-            })
-            RunLoop.main.add(self.floatChangeTimer!, forMode: .common)
-        }
+        self.changeQueue.append((config, plugin))
+        //更新
+        self._floatButtonChange()
     }
 }
 
@@ -200,6 +182,29 @@ private extension ZXKit {
                 } else {
                     floatWindow.setBadge(value: "\(count)", index: 3)
                 }
+            }
+        }
+    }
+
+    static func _floatButtonChange() {
+        guard let firstQueue = self.changeQueue.first else { return }
+        if let floatWindow = self.floatWindow {
+            if self.floatChangeTimer == nil {
+                self.floatChangeTimer = Timer(timeInterval: 2, repeats: true, block: { timer in
+                    DispatchQueue.main.async {
+                        if self.changeQueue.isEmpty {
+                            //队列已循环完毕
+                            floatWindow.menuButtonType = .default
+                            self.floatChangeTimer?.invalidate()
+                            self.floatChangeTimer = nil
+                        } else {
+                            floatWindow.menuButtonType = .info(config: firstQueue.0, image: firstQueue.1.pluginIcon)
+                            self.changeQueue.removeFirst()
+                        }
+                    }
+                })
+                RunLoop.main.add(self.floatChangeTimer!, forMode: .common)
+                self.floatChangeTimer?.fire()
             }
         }
     }

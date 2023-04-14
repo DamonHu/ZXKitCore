@@ -82,8 +82,8 @@ class ZXKitFloatWindow: UIWindow {
     lazy var mButton: CircleMenu = {
         let button = CircleMenu(
             frame: CGRect(x: 0, y: 0, width: 60, height: 60),
-            normalIcon:"zx_logo_a",
-            selectedIcon:"zx_logo_a",
+            normalIcon:"zx_logo",
+            selectedIcon:"zx_logo",
             buttonsCount: 4,
             duration: 1.5,
             distance: 120)
