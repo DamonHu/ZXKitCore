@@ -133,9 +133,11 @@ extension ZXKitWindow: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let plugin = ZXKit.pluginList[indexPath.section][indexPath.item]
         if plugin.isRunning {
+            plugin.willStop()
             plugin.stop()
             self.reloadData()
         } else {
+            plugin.willStart()
             plugin.start()
             self.reloadData()
         }

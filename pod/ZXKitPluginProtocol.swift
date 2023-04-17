@@ -20,6 +20,20 @@ public protocol ZXKitPluginProtocol {
     var pluginType: ZXKitPluginType { get }
     var isRunning: Bool { get }
 
+    func willStart()
     func start()
+    func willStop()
     func stop()
 }
+
+public extension ZXKitPluginProtocol {
+    func willStart() {
+        
+    }
+    
+    func willStop() {
+        
+    }
+}
+
+

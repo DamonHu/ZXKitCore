@@ -65,6 +65,13 @@ extension PluginDemo: ZXKitPluginProtocol {
 }
 ```
 
+#### Optional Protocol
+
+```
+func willStart()
+func willStop()
+```
+
 ### 3. Register the plug-in
 
 After that, you can register the plug-in, you only need to register once globally

@@ -67,6 +67,14 @@ extension PluginDemo: ZXKitPluginProtocol {
 }
 ```
 
+#### 可选协议
+
+```
+func willStart()
+func willStop()
+```
+
+
 ### 3、注册插件
 
 之后注册插件即可，全局只需注册一次即可
