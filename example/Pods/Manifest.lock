@@ -1,9 +1,9 @@
 PODS:
   - SSZipArchive (2.4.3)
-  - ZXKitLogger (4.0.5):
-    - ZXKitLogger/core (= 4.0.5)
-  - ZXKitLogger/core (4.0.5):
-    - ZXKitUtil (~> 4.0.0)
+  - ZXKitLogger (4.0.6):
+    - ZXKitLogger/core (= 4.0.6)
+  - ZXKitLogger/core (4.0.6):
+    - ZXKitUtil (~> 4.0)
   - ZXKitUtil (4.0.0):
     - ZXKitUtil/core (= 4.0.0)
   - ZXKitUtil/core (4.0.0)
@@ -21,7 +21,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
-  ZXKitLogger: 22f226509df679728bc8da7a7983d672cc9ccbae
+  ZXKitLogger: a6ef61cf1476723aa5d7adab919c5f4b4a1c3de3
   ZXKitUtil: 0d23a979cdc7a7f9df0722148a613986ef007288
 
 PODFILE CHECKSUM: 9d87c4191f034a76d64c88c572941419c5750790
