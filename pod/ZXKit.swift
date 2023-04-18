@@ -44,7 +44,7 @@ public class ZXKit: NSObject {
     //MARK: Private
     private static var hasConfig = false
     private static var window: ZXKitWindow?
-    private static var floatWindow: ZXKitFloatWindow?
+    internal static var floatWindow: ZXKitFloatWindow?
     private static var floatChangeTimer: Timer?     //悬浮按钮的修改
     private static var changeQueue = [(ZXKitButtonConfig, ZXKitPluginProtocol)]() //悬浮按钮修改的队列
     static var pluginList = [[ZXKitPluginProtocol](), [ZXKitPluginProtocol](), [ZXKitPluginProtocol]()]
@@ -68,6 +68,7 @@ public extension ZXKit {
             return tPlugin.pluginIdentifier == plugin.pluginIdentifier
         }) {
             self.pluginList[index].append(plugin)
+            plugin.didRegist()
         }
         if let window = self.window, !window.isHidden {
             DispatchQueue.main.async {
@@ -170,22 +171,8 @@ private extension ZXKit {
         }
         self.hasConfig = true
         self.regist(plugin: ZXKitLogger.shared)
-        NotificationCenter.default.addObserver(self, selector: #selector(_logUpdate(notification: )), name: .ZXKitLogDBUpdate, object: nil)
     }
     
-    @objc static func _logUpdate(notification: Notification) {
-        DispatchQueue.main.async {
-            if let floatWindow = self.floatWindow {
-                let count = ZXKitLogger.getItemCount(type: .error)
-                if count == 0 {
-                    floatWindow.setBadge(value: nil, index: 3)
-                } else {
-                    floatWindow.setBadge(value: "\(count)", index: 3)
-                }
-            }
-        }
-    }
-
     static func _floatButtonChange() {
         guard let firstQueue = self.changeQueue.first else { return }
         if let floatWindow = self.floatWindow {

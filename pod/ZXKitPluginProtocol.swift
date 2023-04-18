@@ -19,7 +19,8 @@ public protocol ZXKitPluginProtocol {
     var pluginTitle: String { get }
     var pluginType: ZXKitPluginType { get }
     var isRunning: Bool { get }
-
+    
+    func didRegist()
     func willStart()
     func start()
     func willStop()
@@ -27,6 +28,10 @@ public protocol ZXKitPluginProtocol {
 }
 
 public extension ZXKitPluginProtocol {
+    func didRegist() {
+        
+    }
+    
     func willStart() {
         
     }
